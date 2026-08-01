@@ -1606,15 +1606,19 @@ function validateForm() {
     if (!document.querySelector(`[name="${name}"]:checked`)) { row.classList.add('error-row'); valid = false; if(!first) first=row; }
     else row.classList.remove('error-row');
   });
-  if (!document.querySelector('[name="nps_score"]:checked')) {
-    document.getElementById('npsBlock').classList.add('error-nps'); valid = false;
-    if (!first) first = document.getElementById('npsBlock');
+  const npsBlock = document.getElementById('npsBlock');
+  if (npsBlock) {
+    if (!document.querySelector('[name="nps_score"]:checked')) {
+      npsBlock.classList.add('error-nps'); valid = false;
+      if (!first) first = npsBlock;
+    }
+    ['nps_fu1','nps_fu2','nps_fu3','nps_fu4'].forEach((name,qi) => {
+      const row = document.getElementById(`nps_fu${qi+1}_row`);
+      if (!row) return;
+      if (!document.querySelector(`[name="${name}"]:checked`)) { row.classList.add('error-row'); valid = false; if(!first) first=row; }
+      else row.classList.remove('error-row');
+    });
   }
-  ['nps_fu1','nps_fu2','nps_fu3','nps_fu4'].forEach((name,qi) => {
-    const row = document.getElementById(`nps_fu${qi+1}_row`);
-    if (!document.querySelector(`[name="${name}"]:checked`)) { row.classList.add('error-row'); valid = false; if(!first) first=row; }
-    else row.classList.remove('error-row');
-  });
   const college = document.getElementById('collegeName').value;
   const dept = document.getElementById('department').value;
   if (college && dept && COLLEGE_DATA[college] && COLLEGE_DATA[college][dept]) {
