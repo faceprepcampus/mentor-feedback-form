@@ -555,7 +555,7 @@ input::placeholder, textarea::placeholder { color: #94a3b8; }
 
 <script>
 // ─── GOOGLE SHEET CONFIG ─────────────────────────────────────────────────────
-const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqbFm7PSM4asnLaXNaQuPgTsKivJNP0-vGfAszqH2kTP-j5CVYqFE06lv1ABGefw4bBw/exec";
+const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyrjhDVlhtf2JgONtEB6y_BKoP0uOXtptM7H6DsU4xcpaMsiH43kaOBhTx_7tfghtN0mQ/exec";
 
 const QUESTIONS = [
   "Were the sessions delivered by the Faculty clear and well-structured?",
@@ -570,13 +570,27 @@ const CHALLENGE_IDS = ['challenge_infra','challenge_teaching','challenge_comm','
 
 // ─── COLLEGE DATA ─────────────────────────────────────────────────────────────
 const COLLEGE_DATA = {
+  {
+  "Noorul Islam Centre for Higher Education (NICHE)": {
+    "B.Sc AI & ML": [
+      {subject:"Data Structures using Java",mentor:"Aasik"},
+      {subject:"Effective Communication",mentor:"Ramnath"},
+      {subject:"Database Management Systems",mentor:"Aasik"},
+      {subject:"Fundamentals Of Statistics",mentor:"Harishkumar"},
+      {subject:"Machine Learning Fundamentals",mentor:"Sayan Dey"},
+      {subject:"Operating Systems and Linux Basics",mentor:"Sayan Dey"},
+      {subject:"Aptitude",mentor:"Harishkumar"},
+      {subject:"Digital Workplace Safety and Health",mentor:"Ramnath"},
+      {subject:"Environmental Science",mentor:"Ramnath"}
+    ]
+  },
   "TJS College of Arts and Science": {
     "III B.Sc CS with AI": [
       {subject:"Technical - FPC",mentor:"Subhashini K M"},
-      {subject:"Computer Vision",mentor:"Subhashini K M"},
+      {subject:"Computer Vision ",mentor:"Subhashini K M"},
       {subject:"Natural Language Processing",mentor:"Aarthi R"},
       {subject:"Communicative English",mentor:"Aarthi R"},
-      {subject:"Software Engineering",mentor:"Aarthi R"},
+      {subject:"Software Engineering ",mentor:"Aarthi R"},
       {subject:"Cloud Computing",mentor:"Subhashini K M"}
     ]
   },
@@ -599,240 +613,188 @@ const COLLEGE_DATA = {
   },
   "SDNB Vaishnav College for Women": {
     "III B.Sc. CS with AI": [
-      {subject:"Generative AI",mentor:"Dr.Umamaheshwari"},
-      {subject:"Natural Language Processing",mentor:"Mrs.Geetha"},
-      {subject:"Reinforcement Learning",mentor:"Dr.Vanisree"},
-      {subject:"Natural Language Processing - Lab",mentor:"Mrs.Geetha"},
-      {subject:"Fundamentals of Recruitment and Talent Acquisition",mentor:"Mrs.Abirami K"},
-      {subject:"Social Media Analytics",mentor:"Mrs.Geetha"},
-      {subject:"Full Stack Development",mentor:"Mrs.Geetha"},
-      {subject:"Essentials of Effective Communication Skill",mentor:"Ms.Bavyasharee"},
-      {subject:"Aptitude",mentor:"Ms.W Evangeline Lydia"}
+      {subject:"Generative AI",mentor:"Devipriya"},
+      {subject:"Natural Language Processing",mentor:"Geetha"},
+      {subject:"Reinforcement Learning",mentor:"Srisivasankari"},
+      {subject:"Natural Language Processing - Lab",mentor:"Geetha"},
+      {subject:"Fundamentals of Recruitment and Talent Acquisition",mentor:"Abirami"},
+      {subject:"Social Media Analytics",mentor:"Geetha"},
+      {subject:"Full Stack Development",mentor:"Geetha"},
+      {subject:"Essentials of Effective Communication Skill",mentor:"Bavyashree"},
+      {subject:"Aptitude",mentor:"Lydia"}
     ],
     "II B.Sc. CS with AI (Shift 1)": [
-      {subject:"Language - IV",mentor:"Mrs.Stella Mary A"},
-      {subject:"General English - IV",mentor:"Ms.Jaisha Priyam"},
-      {subject:"LLM",mentor:"Ms.Arockiyamarry"},
-      {subject:"Database Management Systems",mentor:"Mrs.Dharani"},
-      {subject:"Data Ethics And Privacy",mentor:"Ms.Arockiyamarry"},
-      {subject:"Database Management Systems - Lab",mentor:"Mrs.Dharani"},
-      {subject:"Descriptive Statistics",mentor:"Mrs.Saradha"},
-      {subject:"Effective Communication",mentor:"Ms.Jaisha Priyam"}
+      {subject:"Language - IV",mentor:"Stella Mary"},
+      {subject:"General English - IV",mentor:"Jaisha"},
+      {subject:"LLM",mentor:"Arockiyamary"},
+      {subject:"Database Management Systems",mentor:"Dharani"},
+      {subject:"Data Ethics And Privacy",mentor:"Arockiyamary"},
+      {subject:"Database Management Systems - Lab",mentor:"Dharani"},
+      {subject:" Descriptive Statistics",mentor:"Saradha"},
+      {subject:"Effective Communication",mentor:"Jaisha"}
     ],
     "II B.Sc. CS with AI (Shift 2)": [
-      {subject:"Language - IV",mentor:"Dr.Mekala"},
-      {subject:"General English - IV",mentor:"Ms.Vijitha Devi J"},
-      {subject:"Foundations of LLMs & Prompt Engineering",mentor:"Ms.Subashini"},
-      {subject:"Database Management Systems",mentor:"Ms.Subashini"},
-      {subject:"Data Ethics And Privacy",mentor:"Ms.Subashini"},
-      {subject:"Database Management Systems - Lab",mentor:"Ms.Subashini"},
-      {subject:"Descriptive Statistics",mentor:"Dr.Anusha"},
-      {subject:"Effective Communication",mentor:"Ms.Vijitha Devi J"},
-      {subject:"Aptitude",mentor:"Ms.W Evangeline Lydia"}
+      {subject:"Language - IV",mentor:"Mekala"},
+      {subject:"General English - IV",mentor:"Vijitha"},
+      {subject:"Foundations of LLMs & Prompt Engineering",mentor:"Subashini"},
+      {subject:"Database Management Systems",mentor:"Subashini"},
+      {subject:"Data Ethics And Privacy",mentor:"Subashini"},
+      {subject:"Database Management Systems - Lab",mentor:"Subashini"},
+      {subject:"Descriptive Statistics",mentor:"Anusha"},
+      {subject:"Effective Communication",mentor:"Vijitha"},
+      {subject:"Aptitude",mentor:"Lydia"}
     ],
     "II B.Sc. DS & AI": [
-      {subject:"Language - IV",mentor:"Mrs.Stella Mary A"},
-      {subject:"General English - IV",mentor:"Ms.Sandra"},
-      {subject:"Data Structures and Algorithms",mentor:"Mrs.Dharani"},
-      {subject:"Data Structures and Algorithms Lab",mentor:"Mrs.Dharani"},
-      {subject:"Statistics - I",mentor:"Dr. Anitta Arulraj"},
-      {subject:"Analytical Reasoning and Problem Solving - III",mentor:"Mrs.Saradha"},
-      {subject:"Effective Communication",mentor:"Ms.Sandra"}
+      {subject:"Language - IV",mentor:"Stella Mary"},
+      {subject:"General English - IV",mentor:"Sandra"},
+      {subject:"Data Structures and Algorithms",mentor:"Dharani"},
+      {subject:"Data Structures and Algorithms Lab",mentor:"Dharani"},
+      {subject:"Statistics - I",mentor:"Anitta Arulraj"},
+      {subject:"Analytical Reasoning and Problem Solving - III",mentor:"Saradha"},
+      {subject:"Effective Communication",mentor:"Sandra"}
     ],
     "II B.Com FinTech with AI": [
-      {subject:"Corporate Accounting",mentor:"Dr.Malarvizhi"},
-      {subject:"Company Law",mentor:"Ms.Athira S"},
-      {subject:"Business Data Visualization with Power BI",mentor:"Ms.Athira S"},
-      {subject:"Stock Market Trading and Investment Analysis",mentor:"Ms.Astha"},
-      {subject:"Governance and Ethics of Financial Services / Securities Market Research",mentor:"Ms.Astha"},
-      {subject:"Entrepreneurship and Startup Fundamentals",mentor:"Dr.Malarvizhi"},
-      {subject:"Effective Communication",mentor:"Ms.Jaisha Priyam"},
-      {subject:"Analytical Reasoning and Problem Solving - III",mentor:"Mrs.Saradha"}
+      {subject:"Corporate Accounting",mentor:"Malarvizhi"},
+      {subject:"Company Law",mentor:"Athira"},
+      {subject:"Business Data Visualization with Power BI",mentor:"Athira"},
+      {subject:"Stock Market Trading and Investment Analysis",mentor:"Astha"},
+      {subject:"Governance and Ethics of Financial Services / Securities Market Research",mentor:"Astha"},
+      {subject:"Entrepreneurship and Startup Fundamentals",mentor:"Malarvizhi"},
+      {subject:"Effective Communication",mentor:"Jaisha"},
+      {subject:"Analytical Reasoning and Problem Solving - III",mentor:"Saradha"}
     ],
     "II BBA DM & BA": [
-      {subject:"Consumer Behaviour & Digital Customer Journey",mentor:"Mrs.Nayemunnisa"},
-      {subject:"Business Intelligence Fundamentals",mentor:"Mrs.Nayemunnisa"},
-      {subject:"Business Strategy and Competitive Advantage",mentor:"Mrs.Abirami K"},
-      {subject:"Effective Communication",mentor:"Ms.Sandra"},
-      {subject:"Financial Accounting",mentor:"Ms.Athira S"},
-      {subject:"Supply Chain Management",mentor:"Mrs.Nayemunnisa"},
-      {subject:"Global E-Commerce",mentor:"Mrs.Vishnupriya"},
-      {subject:"Effective Communication for Professionals",mentor:"Ms.Sandra"},
-      {subject:"Problem Solving through Aptitude II",mentor:"Ms.W Evangeline Lydia"}
+      {subject:"Consumer Behaviour & Digital Customer Journey",mentor:"Priyanka"},
+      {subject:"Business Intelligence Fundamentals",mentor:"Aishwarya"},
+      {subject:"Business Strategy and Competitive Advantage",mentor:"Abirami"},
+      {subject:"Effective Communication",mentor:"Sandra"},
+      {subject:"Financial Accounting",mentor:"Athira"},
+      {subject:"Supply Chain Management",mentor:"Priyanka"},
+      {subject:" Global E-Commerce",mentor:"Vishnupriya"},
+      {subject:" Effective Communication for Professionals",mentor:"Sandra"},
+      {subject:"Problem Solving through Aptitude II",mentor:"Lydia"}
     ],
     "I B.Sc. CS with AI (Shift 1)": [
-      {subject:"Tamil-I",mentor:"Mrs.Stella Mary A"},
-      {subject:"English- I",mentor:"Ms.Jaisha Priyam"},
-      {subject:"Python Programming",mentor:"Ms.Arockiyamarry"},
-      {subject:"AI Foundations and Machine Learning",mentor:"Ms.Sakshi Pandey"},
-      {subject:"Mathematical Foundations for AI",mentor:"Dr. Anitta Arulraj"},
-      {subject:"Python Programming - Lab",mentor:"Ms.Arockiyamarry"},
-      {subject:"Communication",mentor:"Ms.Jaisha Priyam"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Dr. Anitta Arulraj"}
+      {subject:"Tamil - I",mentor:"Stella Mary"},
+      {subject:"English - I",mentor:"Jaisha"},
+      {subject:"Python Programming",mentor:"Arockiyamary"},
+      {subject:"AI foundations and Machine Learning",mentor:"Sakshi Pandey"},
+      {subject:"Mathematical Foundations for AI",mentor:"Anitta Arulraj"},
+      {subject:"Python Programming - Lab",mentor:"Arockiyamary"},
+      {subject:"Communication",mentor:"Jaisha"},
+      {subject:"Problem Solving through Aptitude - I",mentor:" Anitta Arulraj"}
     ],
     "I B.Sc. CS with AI (Shift 2)": [
-      {subject:"Tamil-I",mentor:"Dr.Mekala"},
-      {subject:"English- I",mentor:"Ms.Vijitha Devi J"},
-      {subject:"Python Programming",mentor:"Dr.Umamaheshwari"},
-      {subject:"AI Foundations and Machine Learning",mentor:"Dr.Umamaheshwari"},
-      {subject:"Mathematical Foundations for AI",mentor:"Ms.W Evangeline Lydia"},
-      {subject:"Python Programming - Lab",mentor:"Dr.Umamaheshwari"},
-      {subject:"Communication",mentor:"Ms.Vijitha Devi J"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Ms.W Evangeline Lydia"}
+      {subject:"Tamil - I",mentor:"Mekala"},
+      {subject:"English - I",mentor:"Vijitha"},
+      {subject:"Python Programming",mentor:"Umamaheshwari"},
+      {subject:"AI foundations and Machine Learning",mentor:"Umamaheshwari"},
+      {subject:"Mathematical Foundations for AI",mentor:"Lydia"},
+      {subject:"Python Programming - Lab",mentor:"Umamaheshwari"},
+      {subject:"Communication",mentor:"Vijitha"},
+      {subject:"Problem Solving through Aptitude - I",mentor:"Lydia"}
     ],
     "I B.Sc. DS & AI": [
-      {subject:"Language",mentor:"Mrs.Stella Mary A"},
-      {subject:"English",mentor:"Ms.Sandra"},
-      {subject:"Python Programming for Data Science",mentor:"Ms.Sakshi Pandey"},
-      {subject:"Python Programming for Data Science Lab",mentor:"Ms.Sakshi Pandey"},
-      {subject:"Mathematics - I",mentor:"Mrs.Saradha"},
-      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Mrs.Saradha"},
-      {subject:"Effective Communication",mentor:"Ms.Sandra"}
+      {subject:"Language",mentor:"Stella Mary"},
+      {subject:"English",mentor:"Sandra"},
+      {subject:"Python Programming for Data Science",mentor:"Sakshi Pandey"},
+      {subject:"Python Programming for Data Science Lab",mentor:"Sakshi Pandey"},
+      {subject:"Mathematics - I",mentor:"Saradha"},
+      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Saradha"},
+      {subject:"Effective Communication",mentor:"Sandra"}
     ],
     "I B.Com FinTech with AI": [
-      {subject:"Language",mentor:"Mrs.Stella Mary A"},
-      {subject:"General English",mentor:"Ms.Bavyasharee"},
-      {subject:"Financial Accounting",mentor:"Dr.Malarvizhi"},
-      {subject:"Principles of Management",mentor:"Ms.Aishwarya V"},
-      {subject:"Introduction to FinTech",mentor:"Ms.Astha"},
-      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Mrs.Saradha"},
-      {subject:"Effective Communication for Professionals",mentor:"Ms.Bavyasharee"}
+      {subject:"Language",mentor:"Stella Mary"},
+      {subject:"General English",mentor:"Bavyashree"},
+      {subject:"Financial Accounting",mentor:"Malarvizhi"},
+      {subject:"Principles of Management",mentor:"Aishwarya"},
+      {subject:"Introduction to FinTech",mentor:"Astha"},
+      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Saradha"},
+      {subject:"Effective Communication for Professionals",mentor:"Bavyashree"}
     ],
     "I BBA DM & BA": [
-      {subject:"Language",mentor:"Mrs.Stella Mary A"},
-      {subject:"General English",mentor:"Ms.Bavyasharee"},
-      {subject:"Introduction to Digital Marketing",mentor:"Mrs.Vishnupriya"},
-      {subject:"Principles of Management",mentor:"Ms.Aishwarya V"},
-      {subject:"Entrepreneurship Management",mentor:"Ms.Aishwarya V"},
-      {subject:"Visual Branding",mentor:"Mrs.Vishnupriya"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Dr. Anitta Arulraj"},
-      {subject:"Website Designing",mentor:"Ms.Aishwarya V"},
-      {subject:"Communication",mentor:"Ms.Bavyasharee"}
+      {subject:"Language",mentor:"Stella Mary"},
+      {subject:"General English",mentor:"Bavyashree"},
+      {subject:"Introduction to Digital Marketing",mentor:"Vishnupriya"},
+      {subject:"Principles of Management",mentor:"Aishwarya"},
+      {subject:"Entrepreneurship Management",mentor:"Aishwarya"},
+      {subject:"Visual Branding",mentor:"Vishnupriya"},
+      {subject:"Problem Solving through Aptitude - I",mentor:" Anitta Arulraj"},
+      {subject:"Website Designing",mentor:"Aishwarya"},
+      {subject:"Communication",mentor:"Bavyashree"}
     ],
     "I B.Sc. CC with CC (Shift 2)": [
-      {subject:"Language-I",mentor:"Dr.Mekala"},
-      {subject:"General English- I",mentor:"Mrs.Mohana Priya"},
-      {subject:"Python Programming",mentor:"Dr.Vanisree"},
-      {subject:"Python Programming - Lab",mentor:"Dr.Vanisree"},
-      {subject:"Mathematics - I",mentor:"Dr.Anusha"},
-      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Ms.W Evangeline Lydia"},
-      {subject:"Effective Communication for Professionals - I",mentor:"Mrs.Mohana Priya"}
+      {subject:"Language - I",mentor:"Mekala"},
+      {subject:"General English - I",mentor:"Mohana Priya"},
+      {subject:"Python Programming",mentor:"Vanisree"},
+      {subject:"Python Programming - Lab",mentor:"Vanisree"},
+      {subject:"Mathematics - I",mentor:"Anusha"},
+      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Lydia"},
+      {subject:"Effective Communication for Professionals - I",mentor:"Mohana Priya"}
     ],
     "I BBA FM (Shift 2)": [
-      {subject:"Language-I",mentor:"Dr.Mekala"},
-      {subject:"General English- I",mentor:"Mrs.Mohana Priya"},
-      {subject:"Principles of Management",mentor:"Mrs.Abirami K"},
-      {subject:"Introduction to Fashion Industry & Terminology",mentor:"Mrs.Suchitra"},
-      {subject:"Fashion History and Cultural Studies",mentor:"Mrs.Suchitra"},
-      {subject:"Problem Solving through Aptitude",mentor:"Dr.Anusha"},
-      {subject:"Soft Skills and Communication Practice",mentor:"Mrs.Mohana Priya"}
+      {subject:"Language - I",mentor:"Mekala"},
+      {subject:"General English - I",mentor:"Mohana Priya"},
+      {subject:"Principles of Management",mentor:"Abirami"},
+      {subject:"Introduction to Fashion Industry & Terminology",mentor:"Suchitra"},
+      {subject:"Fashion History and Cultural Studies",mentor:"Suchitra"},
+      {subject:"Problem Solving through Aptitude",mentor:"Anusha "},
+      {subject:"Soft Skills and Communication Practice",mentor:"Mohana Priya"}
     ],
-    "I B.Com Banking and FinTech": [
-      {subject:"Language-I",mentor:"Dr.Mekala"},
-      {subject:"General English- I",mentor:"Mrs.Mohana Priya"},
-      {subject:"Financial Accounting",mentor:"Ms.Pavitra"},
-      {subject:"Principles and Practice of Banking",mentor:"Ms.Deepika Soankamble"},
-      {subject:"International Banking and Trade Finance",mentor:"Ms.Deepika Soankamble"},
-      {subject:"Computer Applications in Business (Tally Prime)",mentor:"Ms.Pavitra"},
-      {subject:"Soft Skills and Communication Practice",mentor:"Mrs.Mohana Priya"},
-      {subject:"Aptitude",mentor:"Ms.W Evangeline Lydia"}
+    "I B.Com Banking and Fintech": [
+      {subject:"Language - I",mentor:"Mekala"},
+      {subject:"General English - I",mentor:"Mohana Priya"},
+      {subject:"Financial Accounting",mentor:"Pavitra"},
+      {subject:"Principles and Practice of Banking",mentor:"Deepika Soankamble"},
+      {subject:" International Banking and Trade Finance",mentor:"Deepika Soankamble"},
+      {subject:"Computer Applications in Business (Tally Prime)",mentor:"Pavitra"},
+      {subject:"Soft Skills and Communication Practice",mentor:"Mohana Priya"},
+      {subject:"Aptitude",mentor:"Lydia"}
     ],
     "I BBA AAM (Shift 2)": [
-      {subject:"Language-I",mentor:"Dr.Mekala"},
-      {subject:"General English- I",mentor:"Ms.Vijitha Devi J"},
-      {subject:"Principles of Management",mentor:"Mrs.Abirami K"},
-      {subject:"Introduction to Air Transport System",mentor:"Ms.Shabana Rahman"},
-      {subject:"Aviation Business Fundamentals",mentor:"Ms.Shabana Rahman"},
-      {subject:"Problem Solving through Aptitude",mentor:"Dr.Anusha"},
-      {subject:"Soft Skills and Communication Practice",mentor:"Ms.Vijitha Devi J"}
-    ]
-  },
-  "Alliance University": {
-    "II MCA - A": [
-      {subject:"Data Analytics for Business",mentor:"Aman"},
-      {subject:"Data Mining and Big Data Analytics",mentor:"Nagasri"},
-      {subject:"Deep Learning Models and Applications",mentor:"Sanjivini"},
-      {subject:"Engineering Principles of Software",mentor:"Gomathy"},
-      {subject:"NLP Algorithms and Applications",mentor:"Nagasri"},
-      {subject:"Professional Skill Development",mentor:"Dharshinee"},
-      {subject:"Generative Models and Applications",mentor:"Sanjivini"}
-    ],
-    "II MCA - B": [
-      {subject:"Data Analytics for Business",mentor:"Aman"},
-      {subject:"Data Mining and Big Data Analytics",mentor:"Nagasri"},
-      {subject:"Deep Learning Models and Applications",mentor:"Sanjivini"},
-      {subject:"Engineering Principles of Software",mentor:"Gomathy"},
-      {subject:"NLP Algorithms and Applications",mentor:"Nagasri"},
-      {subject:"Professional Skill Development",mentor:"Dharshinee"},
-      {subject:"Web Technologies",mentor:"Veera Raghav"},
-      {subject:"Generative Models and Applications",mentor:"Sanjivini"},
-      {subject:"Artificial Intelligence: Concepts and Applications",mentor:"Gomathy"},
-      {subject:"Quality Assurance in Software Development",mentor:"Veera Raghav"}
-    ],
-    "I BCA - A": [
-      {subject:"Mathematics for Computing",mentor:"Pramisha"},
-      {subject:"Python Programming",mentor:"Renita Joy R"},
-      {subject:"Python Programming Lab",mentor:"Renita Joy R"},
-      {subject:"Fundamentals of Computer",mentor:"harshini"},
-      {subject:"Operating Systems",mentor:"harshini"},
-      {subject:"Interpersonal and Essential Skills-I",mentor:"Dharshini"},
-      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Ajiith Pandian"}
-    ],
-    "I BCA - B": [
-      {subject:"Mathematics for Computing",mentor:"Pramisha"},
-      {subject:"Python Programming",mentor:"Renita Joy R"},
-      {subject:"Python Programming Lab",mentor:"Renita Joy R"},
-      {subject:"Fundamentals of Computer",mentor:"harshini"},
-      {subject:"Operating Systems",mentor:"harshini"},
-      {subject:"Interpersonal and Essential Skills-I",mentor:"Dharshini"},
-      {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Ajiith Pandian"}
+      {subject:"Language - I",mentor:"Mekala"},
+      {subject:"General English - I",mentor:"Vijitha"},
+      {subject:"Principles of Management",mentor:"Abirami"},
+      {subject:"Introduction to Air Transport System",mentor:"Shabana Rahman"},
+      {subject:"Aviation Business Fundamentals",mentor:"Shabana Rahman"},
+      {subject:"Problem Solving through Aptitude",mentor:"Anusha"},
+      {subject:"Soft Skills and Communication Practice",mentor:"Vijitha"}
     ]
   },
   "Sri Ramakrishna College of Arts and Science for Women": {
     "I BBA DM": [
-      {subject:"Visual Branding and Digital Marketing",mentor:"Ms.Athira"},
-      {subject:"Website Designing",mentor:"Ms.Aparna"},
-      {subject:"English for Management",mentor:"Ms.Christina"},
-      {subject:"Principles of Management",mentor:"Ms.Athira"},
-      {subject:"Aptitude",mentor:"Ms.Kanishka"}
+      {subject:"Visual Branding and Digital Marketing",mentor:"Athira"},
+      {subject:"Website Designing",mentor:"Aparna"},
+      {subject:"English for Management",mentor:"Christina"},
+      {subject:"Principles of Management",mentor:"Athira"},
+      {subject:"Aptitude",mentor:"Kanishka"}
     ],
     "I BCA": [
-      {subject:"Python",mentor:"Ms.Packiamary"},
-      {subject:"UI & UX",mentor:"Ms.Packiamary"},
-      {subject:"English for Computer Science",mentor:"Ms.Christina"},
-      {subject:"Aptitude",mentor:"Ms.Kanishka"}
-    ]
-  },
-  "Joy University": {
-    "BCA AI": [
-      {subject:"Effective Communication",mentor:"Prasaanth"},
-      {subject:"Applied Statistics",mentor:"Indhumathi"},
-      {subject:"Aptitude",mentor:"Prasaanth"},
-      {subject:"Java (Advanced FOP & OOPS)",mentor:"Preethi"},
-      {subject:"Data Structures",mentor:"Preethi"},
-      {subject:"Python for Data Science",mentor:"Preethi"},
-      {subject:"Front End Development",mentor:"Preethi"}
+      {subject:"Python",mentor:"Packiamary"},
+      {subject:"UI & UX",mentor:"Packiamary"},
+      {subject:"English for Computer Science",mentor:"Christina"},
+      {subject:"Aptitude",mentor:"Kanishka"}
     ]
   },
   "Kamaraj College": {
     "I BCA - A": [
       {subject:"Tamil - I",mentor:"Gowrishankar"},
-      {subject:"English - I",mentor:"Devadharshini"},
-      {subject:"Effective Communication",mentor:"Devadharshini"},
+      {subject:"English - I",mentor:" Devadharshini"},
+      {subject:"Effective Communication",mentor:" Devadharshini"},
       {subject:"Python Programming",mentor:"Mangaleshwaran"},
       {subject:"Mathematics for AI",mentor:"Nandhana"},
-      {subject:"Fundamental Computer Architecture",mentor:"Saral"},
+      {subject:"Fundamental Computer Architechure",mentor:"Saral"},
       {subject:"UI/UX",mentor:"Saral"},
       {subject:"UI/UX Lab",mentor:"Saral"},
       {subject:"Aptitude",mentor:"Nandhana"}
     ],
     "I BCA - B": [
       {subject:"Tamil - I",mentor:"Gowrishankar"},
-      {subject:"English - I",mentor:"Serina K"},
-      {subject:"Effective Communication",mentor:"Serina K"},
+      {subject:"English - I",mentor:"Serina"},
+      {subject:"Effective Communication",mentor:"Serina"},
       {subject:"Python Programming",mentor:"Mangaleshwaran"},
       {subject:"Mathematics for AI",mentor:"Nandhana"},
-      {subject:"Fundamental Computer Architecture",mentor:"Saral"},
+      {subject:"Fundamental Computer Architechure",mentor:"Saral"},
       {subject:"UI/UX",mentor:"Saral"},
       {subject:"UI/UX Lab",mentor:"Saral"},
       {subject:"Aptitude",mentor:"Nandhana"}
@@ -843,7 +805,7 @@ const COLLEGE_DATA = {
       {subject:"Effective Communication",mentor:"Venkatesh"},
       {subject:"Data Structure Algorithms",mentor:"Sharumathi"},
       {subject:"Big Data Analytics",mentor:"Periya Nayagi"},
-      {subject:"Data Visualization",mentor:"Aparna"},
+      {subject:"Data Vizualiztion  ",mentor:"Aparna"},
       {subject:"DBMS Lab",mentor:"Aparna"},
       {subject:"Aptitude",mentor:"Santhiya"}
     ],
@@ -860,7 +822,7 @@ const COLLEGE_DATA = {
     "III BCA - A": [
       {subject:"Data Analytics R",mentor:"Aparna"},
       {subject:"Operating System",mentor:"Saral"},
-      {subject:"AI and its Application",mentor:"Periyanagi"},
+      {subject:"AI and its Application",mentor:"Periya Nayagi"},
       {subject:"ASP.NET",mentor:"Dharani"},
       {subject:"Software Project Management",mentor:"Anto Jegan"},
       {subject:"ASP.NET Lab",mentor:"Dharani"},
@@ -877,56 +839,84 @@ const COLLEGE_DATA = {
       {subject:"Principles Of Management",mentor:"Jane Rhinu"},
       {subject:"Managerial Communication",mentor:"Harishma G"},
       {subject:"Entrepreneurship Management",mentor:"Harishma G"},
-      {subject:"Accounting For Managers",mentor:"Harishma Devi"},
+      {subject:"Accounting For Managers",mentor:"Harishma Devi C"},
       {subject:"Tamil",mentor:"Gowrishankar"},
-      {subject:"General English-I",mentor:"Serina K"},
-      {subject:"Effective Communication",mentor:"Serina K"}
+      {subject:"General English-I",mentor:"Serina"},
+      {subject:"Effective Communication",mentor:"Serina"}
     ],
     "II BBA": [
-      {subject:"Aptitude",mentor:"Ms. Nandhana M"},
-      {subject:"Communication",mentor:"Mr. Shahul Hameed"},
-      {subject:"Ecommerce Operations and Marketplace Management",mentor:"Ms. Sherly Anish Arone"},
-      {subject:"Business Analytics and Dashboarding",mentor:"Ms. Sherly Anish Arone"},
-      {subject:"Entrepreneurship and Startup Execution Lab",mentor:"Ms. Sherly Anish Arone"},
-      {subject:"SEO and It's Fundamentals",mentor:"Ms. Sherly Anish Arone"},
-      {subject:"Database Management System",mentor:"Ms. Sree Mathi"},
-      {subject:"Financial Literacy and Investment Strategies",mentor:"Ms. Sree Mathi"},
-      {subject:"International Marketing",mentor:"Ms. Harishma"},
-      {subject:"Human Resource Management",mentor:"Ms. Harishma"},
+      {subject:"Aptitude",mentor:"Nandhana"},
+      {subject:"Communication",mentor:"Shahul Hameed"},
+      {subject:"E-commerce Operations and Marketplace Management",mentor:"Sherly Anish Arone"},
+      {subject:"Business Analytics and Dashboarding",mentor:"Sherly Anish Arone"},
+      {subject:"Entrepreneurship and Startup Execution Lab",mentor:"Sherly Anish Arone"},
+      {subject:"SEO and It's Fundamentals",mentor:"Sherly Anish Arone"},
+      {subject:"Database Management System",mentor:"Sreemathi"},
+      {subject:"Financial Literacy and Investment Strategies",mentor:"Sreemathi"},
+      {subject:"International Marketing",mentor:"Harishma G"},
+      {subject:"Human Resource Management",mentor:"Harishma G"},
       {subject:"Production and Materials Management",mentor:"Jane Rhinu"},
-      {subject:"Tamil",mentor:"Mr. Gowrishankar B"},
-      {subject:"General English - III",mentor:"Mr. Shahul Hameed"}
+      {subject:"Tamil",mentor:"Gowrishankar"},
+      {subject:"General English - III",mentor:"Shahul Hameed"}
     ],
     "I B.Com": [
-      {subject:"Tamil",mentor:"Mr. Gowrishankar B"},
-      {subject:"General English-I",mentor:"Serina K"},
-      {subject:"Financial Accounting I",mentor:"Shobhana S"},
-      {subject:"Principles of Management",mentor:"Ms. Sherly Anish Arone"},
+      {subject:"Tamil",mentor:"Gowrishankar"},
+      {subject:"General English - I",mentor:"Serina"},
+      {subject:"Financial Accounting I",mentor:"Shobhana"},
+      {subject:"Principles of Management",mentor:"Sherly Anish Arone"},
       {subject:"Introduction to FinTech",mentor:"Harishmadevi C"},
-      {subject:"Fundamentals of Business Studies",mentor:"Vishalakchi M"},
-      {subject:"Communication",mentor:"Serina K"},
+      {subject:"Fundamentals of Business Studies",mentor:"Vishalakchi"},
+      {subject:"Communication",mentor:"Serina"},
       {subject:"Aptitude",mentor:"Santhiya"},
-      {subject:"Financial Statement & Financial Data Analysis",mentor:"Shobhana S"},
-      {subject:"Personal Financial Management",mentor:"Shobhana S"},
-      {subject:"Fintech Revolution - Case Study",mentor:"Shobhana S"},
-      {subject:"Managerial & Strategic Analysis - Case Study",mentor:"Shobhana S"}
+      {subject:"Financial Statement & Financial Data Analysis",mentor:"Shobhana"},
+      {subject:"Personal Financial Management",mentor:"Shobhana"},
+      {subject:"Fintech Revolution - Case Study",mentor:"Harishmadevi C"},
+      {subject:"Managerial & Strategic Analysis - Case Study",mentor:"Harishmadevi C"}
     ],
     "II B.Com": [
-      {subject:"Tamil",mentor:"Mr. Gowrishankar B"},
-      {subject:"General English-III",mentor:"Venkatesh S"},
+      {subject:"Tamil",mentor:"Gowrishankar"},
+      {subject:"General English - III",mentor:"Venkatesh"},
       {subject:"Company Law",mentor:"Harishmadevi C"},
-      {subject:"Banking Technology and Digital Payment",mentor:"Harishmadevi C"},
+      {subject:"Banking Technoloy and Digital Payment",mentor:"Harishmadevi C"},
       {subject:"Security Market Research",mentor:"Harishmadevi C"},
       {subject:"Management Accounting",mentor:"Harishmadevi C"},
-      {subject:"Corporate Accounting",mentor:"Vishalakchi M"},
-      {subject:"Communication",mentor:"Venkatesh S"},
-      {subject:"Aptitude",mentor:"Infanta Jasmine Rushmitha T"},
-      {subject:"Practical Stock Market Analysis and Mock Trading using TradingView",mentor:"Vishalakchi M"},
-      {subject:"Legal Case Analysis and Corporate Policy Review",mentor:"Vishalakchi M"},
-      {subject:"Financial Data Analysis using Power BI",mentor:"Vishalakchi M"}
+      {subject:"Corporate Accounting",mentor:"Shobhana"},
+      {subject:"Communication",mentor:"Venkatesh"},
+      {subject:"Aptitude",mentor:"Infanta Jasmine Rushmitha"},
+      {subject:"Practical Stock Market Analysis and Mock Trading using TradingView",mentor:"Vishalakchi"},
+      {subject:"Legal Case Analysis and Corporate Policy Review",mentor:"Vishalakchi"},
+      {subject:"Financial Data Analysis using Power BI",mentor:"Vishalakchi"},
+      {subject:"Aptitude",mentor:"Infanta Jasmine Rushmitha"}
+    ],
+    "I MBA": [
+      {subject:"Aptitude",mentor:"Infanta Jasmine Rushmitha"},
+      {subject:"Communication",mentor:"Shahul Hameed"},
+      {subject:"Visual Branding",mentor:"Jane Rhinu"},
+      {subject:"Website Designing",mentor:"Jane Rhinu"},
+      {subject:"Business Analytics and Dashboarding",mentor:"Jane Rhinu"},
+      {subject:"Managerial Principles",mentor:"Sherly Anish Arone"},
+      {subject:"Research Methods in Business",mentor:"Harishma G"},
+      {subject:"Quantitative Techniques",mentor:"Infanta Jasmine Rushmitha"},
+      {subject:"Organizational Behavior",mentor:"Harishma G"},
+      {subject:"Accounting For Managers",mentor:"Vishalakchi"},
+      {subject:"Managerial Economics",mentor:"Sreemathi"},
+      {subject:"Legal Systems in Business",mentor:"Jane Rhinu"},
+      {subject:"Entrepreneurship Development",mentor:"Harishma G"}
+    ],
+    "I MCA": [
+      {subject:"Discrete Mathematics",mentor:"Infanta Jasmine Rushmitha"},
+      {subject:"Advanced Python Programming",mentor:"Anto Jegan"},
+      {subject:"Linux and Shell Programming",mentor:"Dharani"},
+      {subject:"Advanced Python Programming Lab ",mentor:"Anto Jegan"},
+      {subject:"Linux and Shell Programming Lab ",mentor:"Dharani"},
+      {subject:"Data Engineering and Management ",mentor:"Periyanayagi"},
+      {subject:"Cryptography and Network Security",mentor:"Dharani"},
+      {subject:"FOP Python",mentor:"Anto Jegan"},
+      {subject:"Aptitude",mentor:"Infanta Jasmine Rushmitha"},
+      {subject:"Communication",mentor:"Venkatesh"}
     ]
   },
-  "Kamaraj Women's College": {
+    "Kamaraj Women's College": {
     "B.Sc. CS with AI": [
       {subject:"Tamil",mentor:"Gowrishankar"},
       {subject:"English",mentor:"Devadharshini"},
@@ -936,28 +926,30 @@ const COLLEGE_DATA = {
       {subject:"Power BI Laboratory",mentor:"Abhinaya"},
       {subject:"EVS",mentor:"Infanta Jasmine Rushmitha"},
       {subject:"Communication",mentor:"Devadharshini"},
-      {subject:"Aptitude",mentor:"Nandhana"}
+      {subject:"Aptitude",mentor:"Santhiya"}
     ]
   },
   "Sree Saraswathi Thyagaraja College": {
     "II BBA": [
-      {subject:"Product Sourcing and Inventory Management",mentor:"Rohith venugopal"},
-      {subject:"Financial Accounting",mentor:"Rohith venugopal"},
-      {subject:"SEO",mentor:"KAVIPRIYA"},
+      {subject:"Product Sourcing and Inventory Management",mentor:"Rohith Venugopal"},
+      {subject:"Financial Accounting",mentor:"Rohith Venugopal"},
+      {subject:"SEO",mentor:"Kavipriya"},
+      {subject:"Business Analytics and Dashboarding",mentor:"Rohith Venugopal"},
+      {subject:"Entrepreneurship and Startup Execution Lab",mentor:"Kavipriya"},
       {subject:"Strategic Management",mentor:"Kavipriya"},
       {subject:"English",mentor:"Kowsalya"},
       {subject:"Effective Communication",mentor:"Kowsalya"},
-      {subject:"Aptitude",mentor:"Indhumathy"}
+      {subject:"Aptitude",mentor:"Indhumathi"}
     ],
     "I MCA": [
       {subject:"Data Visualization",mentor:"Sneha"},
       {subject:"AI in Health Care",mentor:"Sneha"},
       {subject:"Deep Learning",mentor:"Shree Varsha"},
-      {subject:"IOT (Elective)",mentor:"Shree Varsha"},
+      {subject:"IOT(Elective)",mentor:"Shree Varsha"},
       {subject:"Software Engineering",mentor:"Dhatchinamoorthy"},
-      {subject:"Cyber Security (Elective)",mentor:"Dhatchinamoorthy"},
+      {subject:"Cyber Security(Elective)",mentor:"Dhatchinamoorthy"},
       {subject:"Effective Communication",mentor:"Prashaanth"},
-      {subject:"Aptitude",mentor:"Indhumathy"}
+      {subject:"Aptitide",mentor:"Indhumathi"}
     ],
     "I BBA": [
       {subject:"Visual Branding",mentor:"Sashtiga"},
@@ -965,8 +957,8 @@ const COLLEGE_DATA = {
       {subject:"Principles of Management",mentor:"Kavipriya"},
       {subject:"English",mentor:"Kowsalya"},
       {subject:"Effective Communication",mentor:"Kowsalya"},
-      {subject:"Aptitude",mentor:"Indhumathy"},
-      {subject:"Introduction to Digital Marketing", mentor:"Rohith Venugopal"}
+      {subject:"Aptitude",mentor:"Indhumathi"},
+      {subject:"Introduction to Digital Marketing",mentor:"Rohith Venugopal"}
     ],
     "I B.Com": [
       {subject:"Fundamentals of Financial Accounting",mentor:"Sandra Mariya"},
@@ -974,7 +966,7 @@ const COLLEGE_DATA = {
       {subject:"Financial Data Analysis using Excel",mentor:"Sandra Mariya"},
       {subject:"English",mentor:"Kowsalya"},
       {subject:"Effective Communication",mentor:"Prashaanth"},
-      {subject:"Aptitude",mentor:"Indhumathy"}
+      {subject:"Aptitide",mentor:"Indhumathi"}
     ]
   },
   "TERF's College of Arts and Science": {
@@ -985,141 +977,149 @@ const COLLEGE_DATA = {
       {subject:"RDBMS",mentor:"Ajeetha"},
       {subject:"Visual Basic",mentor:"Ajeetha"},
       {subject:"Animation Technique",mentor:"Ajeetha"},
-      {subject:"Dot Net",mentor:"Ajeetha"}
+      {subject:"Dot net",mentor:"Ajeetha"}
     ]
   },
   "Bharathidasan College of Arts & Science": {
     "II B.Sc CT": [
-      {subject:"Tamil III",mentor:"Sridhar K"},
-      {subject:"English III",mentor:"Priyadharshini P"},
-      {subject:"Data Structures and Algorithms using C++",mentor:"Senthilnathan S"},
-      {subject:"Technical (DSA)",mentor:"Senthilnathan S"},
-      {subject:"Internet of Things",mentor:"Senthilnathan S"},
-      {subject:"Effective Communication",mentor:"Priyadharshini P"},
-      {subject:"Database Management System",mentor:"Dharmaprakash L"},
-      {subject:"Web Application Development",mentor:"Dharmaprakash L"},
-      {subject:"Aptitude",mentor:"Anuranjana N"}
+      {subject:"Tamil III",mentor:"Sridhar"},
+      {subject:"English III",mentor:"Priyadharshini"},
+      {subject:"Data Structures and Computer Algorithm",mentor:"Senthilnathan"},
+      {subject:"Technical - DBMS",mentor:"Dharmaprakash"},
+      {subject:"Technical (DSA)",mentor:"Senthilnathan"},
+      {subject:"Internet of Things",mentor:"Senthilnathan"},
+      {subject:"Effective Communication ",mentor:"Priyadharshini"},
+      {subject:"Database Management System",mentor:"Dharmaprakash"},
+      {subject:"Web Application Development",mentor:"Dharmaprakash"},
+      {subject:"Aptitude",mentor:"Anuranjana"}
     ],
     "II BBA CA": [
-      {subject:"Tamil III",mentor:"Sridhar K"},
-      {subject:"English III",mentor:"Priyadharshini P"},
-      {subject:"Financial Accounting",mentor:"Bhargavi K M"},
-      {subject:"Production and Materials Management",mentor:"Bhargavi K M"},
-      {subject:"Aptitude",mentor:"Anuranjana N"},
-      {subject:"Business Law",mentor:"Bhargavi K M"},
+      {subject:"Tamil III",mentor:"Sridhar"},
+      {subject:"English III",mentor:"Priyadharshini"},
+      {subject:"Accounting for Managers",mentor:"Bhargavi"},
+      {subject:"Production and Materials Management",mentor:"Bhargavi"},
+      {subject:"Aptitude",mentor:"Anuranjana"},
+      {subject:"Cyber Law",mentor:"Bhargavi"},
       {subject:"Effective Communication",mentor:"Priyadharshini"},
-      {subject:"Technical (FPC - Business Analytics & Dashboarding, Entrepreneurship and Startup Execution Lab, E-Commerce Operations and Market Place Management)",mentor:"Bhargavi K M"}
+      {subject:"Technical (FPC - Business Analytics & Dashboarding, Entrepreneurship and Startup Execution Lab, E-Commerce Operations and Market Place Management)",mentor:"Bhargavi"}
     ],
     "III B.Sc CT": [
-      {subject:"Effective Communication",mentor:"Priyadharshini P"},
-      {subject:"Aptitude",mentor:"Anuranjana N"},
-      {subject:"RDBMS & Oracle",mentor:"Dharmaprakash L"},
-      {subject:"Python Programming",mentor:"Dharmaprakash L"},
-      {subject:"Visual Basic",mentor:"Senthilnathan S"},
-      {subject:"Network Security and Management",mentor:"Senthilnathan S"},
-      {subject:"Technical (FOP - Python)",mentor:"Dharmaprakash L"}
+      {subject:"Effective Communication",mentor:"Priyadharshini"},
+      {subject:"Aptitude",mentor:"Anuranjana"},
+      {subject:"RDBMS & Oracle",mentor:"Dharmaprakash"},
+      {subject:"Python Programming",mentor:"Dharmaprakash"},
+      {subject:"Visual Basic",mentor:"Senthilnathan"},
+      {subject:"Network Security and Management",mentor:"Senthilnathan"},
+      {subject:"Technical - FOP - Python, RDBMS, Hacker Rank - Algorithm",mentor:"Dharmaprakash"}
     ]
   },
   "Nagarathinam Angalammal Arts and Science College": {
     "III B.Sc AI": [
-      {subject:"Relational Database Management System",mentor:"Mohanasree N"},
-      {subject:"RDBMS Lab using ORACLE",mentor:"Mohanasree N"},
-      {subject:"Machine Learning",mentor:"Yuva Dharshini M"},
-      {subject:"Software Engineering",mentor:"Srisaradha S"},
-      {subject:"Communication",mentor:"Subashini A"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Relational Database Management System",mentor:"Mohanasree"},
+      {subject:"RDBMS Lab using Oracle",mentor:"Mohanasree"},
+      {subject:"Machine Learning",mentor:"Yuva Dharshini"},
+      {subject:"Software Engineering",mentor:"Srisaradha"},
+      {subject:"Communication",mentor:"Subashini"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "II B.Sc AI": [
-      {subject:"Tamil Paper III",mentor:"Shanmuga Sundaram. K"},
-      {subject:"English Paper III",mentor:"Mathibarathi MK"},
-      {subject:"Data Structures and Computer Algorithms",mentor:"Keerthana M"},
-      {subject:"Lab: Data Structures and Computer Algorithms",mentor:"Keerthana M"},
-      {subject:"Mathematical Statistics – I",mentor:"Abirami N"},
-      {subject:"E-Commerce",mentor:"Yuva Dharshini M"},
-      {subject:"Bio Metrics",mentor:"Swetha V"},
-      {subject:"Communication",mentor:"Mathibarathi MK"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil Paper III",mentor:"Shanmuga Sundaram"},
+      {subject:"English Paper III",mentor:"Mathibarathi"},
+      {subject:"Data Structures and Computer Algorithms",mentor:"Mohanasree"},
+      {subject:"Lab: Data Structures and Computer Algorithms",mentor:"Mohanasree"},
+      {subject:"Mathematical Statistics – I",mentor:"Abirami "},
+      {subject:"E-Commerce",mentor:"Yuva Dharshini"},
+      {subject:"Bio Metrics",mentor:"Swetha"},
+      {subject:"Communication",mentor:"Mathibarathi"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "II B.Sc CC": [
-      {subject:"Tamil",mentor:"Shanmuga Sundaram. K"},
-      {subject:"English",mentor:"Mathibarathi MK"},
-      {subject:"DSA",mentor:"Srisaradha S"},
-      {subject:"DSA Lab",mentor:"Srisaradha S"},
-      {subject:"Probability and Statistics",mentor:"Abirami N"},
-      {subject:"Digital Computer Fundamentals",mentor:"Swetha V"},
-      {subject:"Lab - Python",mentor:"Yuva Dharshini M"},
-      {subject:"Communication",mentor:"Mathibarathi MK"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil",mentor:"Shanmuga Sundaram"},
+      {subject:"English",mentor:"Mathibarathi"},
+      {subject:"DSA",mentor:"Srisaradha"},
+      {subject:"DSA Lab",mentor:"Srisaradha"},
+      {subject:"Probablility and Statistics",mentor:"Abirami "},
+      {subject:"Digital Computer Fundamentals",mentor:"Swetha"},
+      {subject:"Lab - Python",mentor:"Yuva Dharshini"},
+      {subject:"Communication",mentor:"Mathibarathi"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "II BBA DM": [
-      {subject:"Tamil - III",mentor:"Shanmuga Sundaram. K"},
-      {subject:"General English III",mentor:"Mathibarathi MK"},
-      {subject:"Marketing Management",mentor:"Danya S"},
-      {subject:"Search Advertising",mentor:"Danya S"},
-      {subject:"Business Statistics",mentor:"Krishna Devi P"},
-      {subject:"Computer Applications in Business",mentor:"Swetha V"},
-      {subject:"Entrepreneurial Skill New Venture Management",mentor:"Danya S"},
-      {subject:"Communication",mentor:"Mathibarathi MK"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil - III",mentor:"Shanmuga Sundaram"},
+      {subject:"General English III",mentor:"Mathibarathi"},
+      {subject:"Marketing Management",mentor:"Danya"},
+      {subject:"Search Advertising",mentor:"Danya"},
+      {subject:"Business Statistics",mentor:"Krishna Devi"},
+      {subject:"Computer Applications in Business",mentor:"Swetha"},
+      {subject:"Entrepreneurial Skill New Venture Management",mentor:"Danya"},
+      {subject:"Communication",mentor:"Mathibarathi"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "II B.Com BC & FT": [
-      {subject:"Tamil - III",mentor:"Shanmuga Sundaram. K"},
-      {subject:"General English III",mentor:"Mathibarathi MK"},
-      {subject:"Corporate Accounting - I",mentor:"Krishna Devi P"},
-      {subject:"Company Law",mentor:"Danya S"},
-      {subject:"Financial Modelling Technology",mentor:"Krishna Devi P"},
-      {subject:"Fundamental And Technical Analysis of Share Market",mentor:"Krishna Devi P"},
-      {subject:"Financial Technology Services",mentor:"Krishna Devi P"},
-      {subject:"Communication",mentor:"Mathibarathi MK"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil - III",mentor:"Shanmuga Sundaram"},
+      {subject:"General English III",mentor:"Mathibarathi "},
+      {subject:"Corporate Accounting - I ",mentor:"Krishna Devi"},
+      {subject:"Company Law",mentor:"Danya"},
+      {subject:"Financial Modelling Technology ",mentor:"Krishna Devi"},
+      {subject:"Fundamental And Technical Analysis of Share Market ",mentor:"Krishna Devi"},
+      {subject:"Financial Technology Services",mentor:"Krishna Devi"},
+      {subject:"Communication",mentor:"Mathibarathi"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "I B.Sc AI": [
-      {subject:"Tamil Paper I",mentor:"Shanmuga Sundaram. K"},
-      {subject:"English Paper I",mentor:"Subashini A"},
-      {subject:"Programming in C",mentor:"Swetha V"},
-      {subject:"Lab: Programming in C",mentor:"Swetha V"},
-      {subject:"Discrete Mathematical Structures",mentor:"Abirami N"},
-      {subject:"Problem Solving Techniques",mentor:"Srisaradha S"},
-      {subject:"Fundamentals of Computers",mentor:"Keerthana M"},
-      {subject:"Communication",mentor:"Subashini A"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil Paper I",mentor:"Shanmuga Sundaram"},
+      {subject:"English Paper I",mentor:"Subashini"},
+      {subject:"Programming in C",mentor:"Swetha"},
+      {subject:"Lab: Programming in C",mentor:"Swetha"},
+      {subject:"Discrete Mathematical Structures",mentor:"Abirami "},
+      {subject:"Problem Solving Techniques",mentor:"Srisaradha"},
+      {subject:"Fundamentals of Computers",mentor:"Swetha"},
+      {subject:"Communication",mentor:"Subashini"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ],
     "I B.Sc CC": [
-      {subject:"Tamil Paper I",mentor:"Shanmuga Sundaram. K"},
-      {subject:"English Paper I",mentor:"Subashini A"},
-      {subject:"Programming in C",mentor:"Mohanasree N"},
-      {subject:"Lab: Programming in C",mentor:"Mohanasree N"},
-      {subject:"Discrete Mathematical Structures",mentor:"Abirami N"},
-      {subject:"Problem Solving Techniques",mentor:"Yuva Dharshini M"},
-      {subject:"Office Automation",mentor:"Keerthana M"},
-      {subject:"Communication",mentor:"Subashini A"},
-      {subject:"Aptitude",mentor:"Abirami N"}
+      {subject:"Tamil Paper I",mentor:"Shanmuga Sundaram"},
+      {subject:"English Paper I",mentor:"Subashini"},
+      {subject:"Programming in C",mentor:"Mohanasree"},
+      {subject:"Lab: Programming in C",mentor:"Mohanasree"},
+      {subject:"Discrete Mathematical Structures",mentor:"Abirami "},
+      {subject:"Problem Solving Techniques",mentor:"Yuva Dharshini"},
+      {subject:"Office Automation",mentor:"Mohanasree"},
+      {subject:"Communication",mentor:"Subashini"},
+      {subject:"Aptitude",mentor:"Abirami "}
     ]
   },
   "VLB Janakiammal College Of Arts & Science": {
     "B. Sc CS (AI & DS)": [
-      {subject:"Skill FOP in C++",mentor:"Ms. Durga. E"},
-      {subject:"Digital Fundamentals & Programming in C++",mentor:"Ms. Durga. E"},
-      {subject:"Lab - Programming in C++",mentor:"Ms. Durga. E"},
-      {subject:"Skill Python for Data Analytics",mentor:"Ms. Jeevika. N"},
-      {subject:"Professional English I",mentor:"Mr. Ramachandran. S"},
-      {subject:"Effective Communication",mentor:"Mr. Ramachandran. S"},
-      {subject:"EVS",mentor:"Ms. Jeevika. N"}
+      {subject:"Skill FOP in C++",mentor:"Durga"},
+      {subject:"Digital Fundamentals & Programming in C++",mentor:"Durga"},
+      {subject:"Lab - Programming in C++ ",mentor:"Durga"},
+      {subject:"Skill Python for Data Analytics",mentor:"Jeevika"},
+      {subject:"Professional English I",mentor:"Ramachandran"},
+      {subject:"Effective Communication",mentor:"Ramachandran"},
+      {subject:"EVS",mentor:"Jeevika"}
     ],
     "B. Com - Blockchain & AI": [
-      {subject:"Principles of Accountancy",mentor:"Ms. Pavithra. K"},
-      {subject:"Business Organization and Management",mentor:"Ms. Pavithra. K"},
-      {subject:"Economics for Business",mentor:"Ms. Pavithra. K"},
-      {subject:"Financial Statement & Data Analysis",mentor:"Ms. Pavithra. K"},
-      {subject:"Personal Financial Management",mentor:"Ms. Pavithra. K"},
-      {subject:"Fintech Revolution - Case Study",mentor:"Ms. Pavithra. K"},
-      {subject:"Managerial & Strategic Analysis - Case Study",mentor:"Ms. Pavithra. K"},
-      {subject:"Professional English I",mentor:"Mr. Ramachandran. S"},
-      {subject:"Effective Communication",mentor:"Mr. Ramachandran. S"},
-      {subject:"EVS",mentor:"Ms. Jeevika. N"}
+      {subject:"Principles of Accountancy",mentor:"Pavithra"},
+      {subject:"Business Organization and Management",mentor:"Pavithra"},
+      {subject:"Economics for Business",mentor:"Pavithra"},
+      {subject:"Financial Statement & Data Analysis",mentor:"Pavithra"},
+      {subject:"Personal FInancial management",mentor:"Pavithra"},
+      {subject:"Fintech Revolution - Case Study",mentor:"Pavithra"},
+      {subject:"Managerial & Stratergic Analysis - Case Study",mentor:"Pavithra"},
+      {subject:"Professional English I",mentor:"Ramachandran"},
+      {subject:"Effective Communication",mentor:"Ramachandran"},
+      {subject:"EVS",mentor:"Jeevika"}
     ]
   },
-  "Vinayaga Mission's Research Foundation School of Arts and Science": {
+  "Kongunadu College of Arts and Science": {
+    "I B.Sc AI & ML": [
+      {subject:"English",mentor:"Amritha Anbu"},
+      {subject:"Python",mentor:"Lakshmi Krishna"},
+      {subject:"Aptitude",mentor:"Gurupriya"}
+    ]
+  },
+  "Vinayaga Mission’s Research Foundation School of Arts and Science": {
     "II B.Com FinTech with AI": [
       {subject:"Tamil - III",mentor:"Kayalvizhi"},
       {subject:"English III",mentor:"Sowmya Rani"},
@@ -1149,218 +1149,382 @@ const COLLEGE_DATA = {
     "I B.Com FinTech with AI": [
       {subject:"Tamil-I",mentor:"Kayalvizhi"},
       {subject:"English I",mentor:"Sowmya Rani"},
-      {subject:"Principles of Financial Accounting",mentor:"Latchiya Bharathi"},
-      {subject:"Introduction to FinTech",mentor:"Edward Linil"},
+      {subject:" Principles of Financial Accounting",mentor:"Latchiya Bharathi"},
+      {subject:" Introduction to FinTech",mentor:"Edward Linil"},
       {subject:"Business Economics",mentor:"Latchiya Bharathi"},
-      {subject:"Problem-solving through Aptitude",mentor:"Rajeshwari"},
+      {subject:"Problem Solving through Aptitude",mentor:"Rajeshwari"},
       {subject:"EVS",mentor:"Kayalvizhi"}
     ]
   },
   "Sri Amaraavathi College of Arts & Science": {
     "II BCA": [
-      {subject:"Tamil",mentor:"Kalaiselvi. V"},
-      {subject:"General English",mentor:"Abitha Shree M"},
-      {subject:"Effective Communication",mentor:"Abitha Shree M"},
-      {subject:"Professional English -II",mentor:"Abitha Shree M"},
+      {subject:"Tamil",mentor:"Kalaiselvi"},
+      {subject:"General English",mentor:"Abitha Shree"},
+      {subject:"Effective Communication",mentor:"Abitha Shree"},
+      {subject:"Professional English -II",mentor:"Abitha Shree"},
       {subject:"Presentation Skills",mentor:"Ezhilarasi"},
       {subject:"Aptitude",mentor:"Ezhilarasi"},
       {subject:"DSA",mentor:"Graclin Mahima"},
-      {subject:"Principles of Accountancy",mentor:"Melbi Susan Joseph"}
+      {subject:"Principles of Accountacy",mentor:"Melbi Susan Joseph"}
     ],
     "III BCA": [
-      {subject:"Fundamentals of Algorithms",mentor:"Nivetha R P"},
-      {subject:"Web Technology & Lab",mentor:"Nivetha R P"},
+      {subject:"Fundamentals of Algorithms",mentor:"Nivetha"},
+      {subject:"Web technology & Lab",mentor:"Nivetha"},
       {subject:"Soft Skill Development",mentor:"Melbi Susan Joseph"},
-      {subject:"Skill-FOP/DSA",mentor:"Nivetha R P"},
+      {subject:"Skill-FOP/DSA",mentor:"Nivetha"},
       {subject:"Aptitude",mentor:"Ezhilarasi"},
-      {subject:"Skill Development-Communication",mentor:"Abitha Shree M"}
+      {subject:"Skill develoment-Communication",mentor:"Abitha Shree"}
     ],
     "II B.Sc AI & ML": [
-      {subject:"Tamil",mentor:"Kalaiselvi. V"},
-      {subject:"General English",mentor:"Abitha Shree M"},
-      {subject:"Effective Communication",mentor:"Abitha Shree M"},
-      {subject:"Professional English -II",mentor:"Abitha Shree M"},
+      {subject:"Tamil",mentor:"Kalaiselvi"},
+      {subject:"General English",mentor:"Abitha Shree"},
+      {subject:"Effective Communication",mentor:"Abitha Shree"},
+      {subject:"Professional English -II",mentor:"Abitha Shree"},
       {subject:"Presentation Skills",mentor:"Ezhilarasi"},
       {subject:"Aptitude",mentor:"Ezhilarasi"},
       {subject:"DSA & DBMS",mentor:"Graclin Mahima"},
       {subject:"Applied Physics",mentor:"Ezhilarasi"}
     ],
     "B.Com FinTech": [
-      {subject:"Tamil",mentor:"Kalaiselvi. V"},
-      {subject:"General English II",mentor:"Abitha Shree M"},
-      {subject:"Effective Communication",mentor:"Abitha Shree M"},
-      {subject:"Business Communication",mentor:"Abitha Shree M"},
-      {subject:"Professional English -II",mentor:"Abitha Shree M"},
-      {subject:"Aptitude",mentor:"Ezhilarasi"},
+      {subject:"Tamil",mentor:"Kalaiselvi"},
+      {subject:"General English II",mentor:"Abitha Shree"},
+      {subject:"Effective Communication",mentor:"Abitha Shree"},
+      {subject:"Business Communication",mentor:"Abitha Shree"},
+      {subject:"Professional English -II",mentor:"Abitha Shree"},
+      {subject:" Aptitude",mentor:"Ezhilarasi"},
       {subject:"Business Law",mentor:"Melbi Susan Joseph"},
-      {subject:"Partnership Accounting",mentor:"Melbi Susan Joseph"},
+      {subject:"Partnership accounting ",mentor:"Melbi Susan Joseph"},
       {subject:"Fundamentals of IT",mentor:"Graclin Mahima"},
-      {subject:"Skill-Trading, Power BI, Case Analysis",mentor:"Melbi Susan Joseph"}
+      {subject:"Skill-Trading , Power BI, Case Analysis",mentor:"Melbi Susan Joseph"}
     ]
   },
   "Takshashila University": {
     "III B.Sc CS AI & ML": [
-      {subject:"Aptitude",mentor:"Ms Akshaya"},
-      {subject:"Effective Communication",mentor:"Ms Vaishnavi"},
-      {subject:"Recruitment Essentials and Career Competency Enhancement",mentor:"Ms Preethi"}
+      {subject:"Deep Learning",mentor:"Gobikha"},
+      {subject:"Generative AI",mentor:"Gobikha"},
+      {subject:"Reinforcement Learning",mentor:"Gobikha"},
+      {subject:"Business Analytics",mentor:"Gobikha"},
+      {subject:"Aptitude",mentor:"Akshaya"},
+      {subject:"Effective Communication",mentor:"Vaishnavi"},
+      {subject:"Recruitment Essentails and Career Competency Enhancement",mentor:"Preethi"}
     ],
     "II B.Sc CS AI & ML": [
-      {subject:"Tamil III",mentor:"Mr Anbarasu"},
-      {subject:"English for Career Development",mentor:"Ms Preethi"},
-      {subject:"DSA",mentor:"Ms Priyanshi"},
-      {subject:"DBMS",mentor:"Ms Ruchi Yadav"},
-      {subject:"Robotics Process Automation",mentor:"Ms Priyanshi"},
-      {subject:"Business Analytics",mentor:"Ms Ruchi Yadav"},
-      {subject:"Personal Development and Soft Skills",mentor:"Ms Akshaya"}
+      {subject:"Tamil III",mentor:"Anbarasu"},
+      {subject:"English for Career Development",mentor:"Preethi"},
+      {subject:"DSA",mentor:"Priyanshi"},
+      {subject:"DBMS",mentor:"Ruchi Yadav"},
+      {subject:"Robotics Process Automation",mentor:"Priyanshi"},
+      {subject:"Business Analytics",mentor:"Ruchi Yadav"},
+      {subject:"Personal Developement and Soft Skills",mentor:"Akshaya"}
     ],
     "II B.Com FinTech with AI": [
-      {subject:"Tamil III",mentor:"Mr Anbarasu"},
-      {subject:"English for Career Development",mentor:"Ms Vaishnavi"},
-      {subject:"Corporate Accounting",mentor:"Ms Nangeswari"},
-      {subject:"Managerial Economics",mentor:"Mr Anish"},
-      {subject:"Ethics of AI in Financial Decision Making",mentor:"Ms Nangeswari"},
-      {subject:"Financial Management",mentor:"Mr Anish"},
-      {subject:"Problem Solving through Aptitude- III",mentor:"Ms Akshaya"}
+      {subject:"Tamil III",mentor:"Anbarasu"},
+      {subject:"English for Career Development",mentor:"Vaishnavi"},
+      {subject:"Corporate Accounting",mentor:"Nangeswari"},
+      {subject:"Managerial Economics",mentor:"Anish"},
+      {subject:"Ethics of AI in Financial Decision Making",mentor:"Nangeswari"},
+      {subject:"Financial Management",mentor:"Anish"},
+      {subject:"Problem Solving through Aptitude- III",mentor:"Akshaya"}
+    ],
+    "I B.Sc CS AI & ML": [
+      {subject:"Tamil I",mentor:"Anbarasu"},
+      {subject:"English for Communication",mentor:"Vaishnavi"},
+      {subject:"Introduction to Python Programming",mentor:"Ruchi Yadav"},
+      {subject:"Design for Developer (UI $ UX)",mentor:"Priyanshi"},
+      {subject:"FCA",mentor:"Priyanshi"},
+      {subject:"Maths",mentor:"Akshaya"},
+      {subject:"Aptitude",mentor:"Akshaya"}
+    ],
+    "I B.Com FinTech with AI": [
+      {subject:"Tamil I",mentor:"Anbarasu"},
+      {subject:"English for Communication",mentor:"Preethi"},
+      {subject:"Principles of Financial Accounting",mentor:"Anish"},
+      {subject:"Principles of Management",mentor:"Anish"},
+      {subject:"Introduction to FinTech",mentor:"Nangeswari"},
+      {subject:"Business Mathematics and Statistics",mentor:"Nangeswari"},
+      {subject:"Aptitude",mentor:"Akshaya"}
     ]
   },
   "Study World Group of Institution": {
-    "I-BCA": [
-      {subject:"Programming Concept with C and C++",mentor:"Ms.Anupriya"},
-      {subject:"Programming C and C++ - Core Lab 1",mentor:"Ms.Anupriya"},
-      {subject:"Digital Fundamentals and Computer Architecture",mentor:"Ms.Dhamayandhi"}
+    "I BCA": [
+      {subject:"English I",mentor:"Santhiya"},
+      {subject:"Programming Concept with C and C++",mentor:"Anupriya"},
+      {subject:"Programming C and C++ - Core Lab 1",mentor:"Anupriya"},
+      {subject:"Digital Fundamentals and and Computer Architecture",mentor:"Dhamayandhi"},
+      {subject:"Environmental Studies",mentor:"Santhiya"}
     ],
-    "II-BCA": [
-      {subject:"Data Structure",mentor:"Ms.Dhamayandhi"},
-      {subject:"RDBMS Programming",mentor:"Ms.Dhamayandhi"},
-      {subject:"RDBMS Programming Lab - Core Lab 4",mentor:"Ms.Dhamayandhi"},
-      {subject:"Web Application Development",mentor:"Ms.Anupriya"}
+    "II BCA": [
+      {subject:"General English III",mentor:"Santhiya"},
+      {subject:"Data Structure",mentor:"Dhamayandhi"},
+      {subject:"RDBMS Programming",mentor:"Dhamayandhi"},
+      {subject:"RDBMS Programming Lab - Core Lab  4",mentor:"Dhamayandhi"},
+      {subject:"Web Application Development",mentor:"Anupriya"}
     ]
   },
-  "Rathinam Global University": {
+  "Kristu Jayanti (DEEMED TO BE UNIVERSITY)": {
+    "II BBA - AI & DS": [
+      {subject:"System and Solution Thinking for Management",mentor:"Lakshaya"},
+      {subject:"Data Visualization using Artificial Intelligence Tools",mentor:"Deepali Gupta"},
+      {subject:"Power BI",mentor:"Deepali Gupta"}
+    ],
+    "II BBA FinTech": [
+      {subject:"Blockchain and cryptocurrencies in Financial Services",mentor:"Nithin "},
+      {subject:"SQL",mentor:"Amitha"}
+    ],
+    "I BBA AI & DS": [
+      {subject:"Applied AI in Business",mentor:"Deepali Gupta"},
+      {subject:"Principles of Data Science",mentor:"Lakshaya"},
+      {subject:"Python Programming",mentor:"Lakshaya"}
+    ],
+    "I BBA FinTech": [
+      {subject:"Spreadsheet for Managers ( Excel)",mentor:"Amitha "}
+    ]
+  },
+  "Rathinam Global Deemed to be University": {
     "II BCA (AI)": [
-      {subject:"Machine Learning",mentor:"Ms. Buvaneshwari. N"},
-      {subject:"Machine Learning - Lab",mentor:"Ms. Buvaneshwari. N"},
-      {subject:"Full Stack Web Development",mentor:"Mrs.Gokilavaani.R"},
-      {subject:"Discrete Mathematics",mentor:"Ms. Kirthika M"},
-      {subject:"Personal Development and Soft Skills",mentor:"Ms.Akhila P"},
-      {subject:"General English",mentor:"Ms.Akhila P"}
+      {subject:"Machine Learning",mentor:"Buvaneshwari"},
+      {subject:"Machine Learning - Lab",mentor:"Buvaneshwari"},
+      {subject:"Full Stack Web Development ",mentor:"Gokilavaani"},
+      {subject:"Discrete Mathematics",mentor:"Kirthika"},
+      {subject:"Personal Development and Soft Skills",mentor:"Akhila"},
+      {subject:"General English",mentor:"Akhila"}
     ],
     "II B.Sc CT (GenAI)": [
-      {subject:"Machine Learning",mentor:"Ms. Buvaneshwari. N"},
-      {subject:"Generative AI - Lab",mentor:"Mr. Goutham K"},
-      {subject:"Personal Development And Soft Skill",mentor:"Ms.Megavarshini V"},
-      {subject:"Discrete Mathematics",mentor:"Ms. Kirthika M"},
-      {subject:"General English",mentor:"Ms.Megavarshini V"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Ms . Kirthika M"}
+      {subject:"Machine Learning",mentor:"Buvaneshwari"},
+      {subject:"Generative AI - Lab",mentor:"Goutham"},
+      {subject:"Personal Development And Soft Skill",mentor:"Megavarshini"},
+      {subject:"Discrete Mathematics",mentor:"Kirthika"},
+      {subject:"General English",mentor:"Megavarshini"},
+      {subject:"Problem Solving through Aptittude - I",mentor:"Kirthika"}
     ],
     "I BCA (AI)": [
-      {subject:"Python and Concurrent Programming",mentor:"Ms.Karthika"},
-      {subject:"Computer Architecture and GPU Computing",mentor:"Mrs.Gokilavaani.R"},
-      {subject:"Web Technologies",mentor:"Mrs.Gokilavaani.R"},
-      {subject:"Linear Algebra and Vector Spaces for AI",mentor:"Ms.Anushruthi"},
-      {subject:"Python and REST API Lab",mentor:"Ms.Karthika"},
-      {subject:"AI Developer Tools and Prompt Engineering",mentor:"Mr. Goutham K"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Ms.Anushruthi"}
+      {subject:"Python and Concurrent Programming",mentor:"Karthika"},
+      {subject:"Computer Architecture and GPU Computing",mentor:"Gokilavaani"},
+      {subject:"Web Technologies",mentor:"Gokilavaani"},
+      {subject:"Linear Algebra and Vector Spaces for AI",mentor:"Anushruthi"},
+      {subject:"Python and REST API Lab",mentor:"Karthika"},
+      {subject:"AI Developer Tools and Prompt Engineering",mentor:"Goutham"},
+      {subject:"Problem Solving through Aptitude - I",mentor:"Anushruthi"}
     ],
     "I B.Sc CT (GenAI)": [
-      {subject:"Python and Concurrent Programming",mentor:"Ms.Karthika"},
-      {subject:"Computer Architecture and GPU Computing",mentor:"Mrs.Gokilavaani.R"},
-      {subject:"Data Engineering and Pipeline Architectures",mentor:"Ms. Buvaneshwari. N"},
-      {subject:"Linear Algebra and Vector Spaces for AI",mentor:"Ms.Anushruthi"},
-      {subject:"Python and REST API Lab",mentor:"Ms.Karthika"},
-      {subject:"AI Developer Tools and Prompt Engineering",mentor:"Mr. Goutham K"},
-      {subject:"Problem Solving through Aptitude - I",mentor:"Ms.Anushruthi"}
+      {subject:"Python and Concurrent Programming",mentor:"Karthika"},
+      {subject:"Computer Architecture and GPU Computing",mentor:"Gokilavaani"},
+      {subject:"Data Engineering and Pipeline Architectures",mentor:"Buvaneshwari"},
+      {subject:"Linear Algebra and Vector Spaces for AI",mentor:"Anushruthi"},
+      {subject:"Python and REST API Lab",mentor:"Karthika"},
+      {subject:"AI Developer Tools and Prompt Engineering",mentor:"Goutham"},
+      {subject:"Problem Solving through Aptitude - I",mentor:"Anushruthi"}
     ]
   },
   "AMET University": {
     "III B.Sc AI & ML": [
-      {subject:"Generative AI",mentor:"Mr. Aakaash M"},
-      {subject:"Natural Language Processing",mentor:"Mr. Tamilarasan D"},
-      {subject:"Capstone Project",mentor:"Mr. Tamilarasan D"},
-      {subject:"Placement Training Skill Development",mentor:"Catherin Sweety R"},
+      {subject:"Generative AI",mentor:"Aakaash"},
+      {subject:"Natural Language Processing",mentor:"Tamilarasan"},
+      {subject:"Capstone Project",mentor:"Tamilarasan"},
+      {subject:"Placement Training Skill Development",mentor:"Catherin Sweety"},
       {subject:"Data Warehousing and Mining",mentor:"Nishanta Kakati"},
-      {subject:"Deep Learning",mentor:"Aakaash M"},
-      {subject:"Reinforcement Learning Laboratory",mentor:"Mr. Tamilarasan D"},
-      {subject:"Aptitude",mentor:"Surya G"}
+      {subject:"Deep Learning",mentor:"Aakaash"},
+      {subject:"Reinforcement Learning Laboratory",mentor:"Parthajit Konwar"},
+      {subject:"Aptitude",mentor:"Surya"}
     ],
     "II B.Sc AI & ML": [
       {subject:"Data Structures and Algorithms",mentor:"Nishanta Kakati"},
-      {subject:"Effective Communication Skill Development",mentor:"Catherin Sweety R"},
-      {subject:"Business Analytics Laboratory",mentor:"Aakaash M"},
-      {subject:"Database Management Systems Laboratory",mentor:"Mr. Tamilarasan D"},
-      {subject:"Operating Systems",mentor:"Bhoomika K"},
-      {subject:"Principles of Management",mentor:"Ansila K"},
-      {subject:"Aptitude",mentor:"Surya G"},
+      {subject:"Effective Communication Skill Development",mentor:"Catherin Sweety"},
+      {subject:"Business Analytics Laboratory",mentor:"Aakaash"},
+      {subject:"Database Management Systems Laboratory",mentor:"Tamilarasan"},
+      {subject:"Operating Systems",mentor:"Vishal Kumar"},
+      {subject:"Principles of Management",mentor:"Ansila"},
+      {subject:"Aptitude",mentor:"Surya"},
       {subject:"Environmental Studies",mentor:"Sabitha Shanmugam"}
     ],
     "II B.Sc AI & DS": [
-      {subject:"Data Structures and Algorithms",mentor:"Shremya Gupta"},
-      {subject:"Effective Communication Skill Development",mentor:"Catherin Sweety R"},
-      {subject:"Business Analytics Laboratory",mentor:"Aakaash M"},
+      {subject:"Data Structures and Algorithms",mentor:"Vishal Kumar"},
+      {subject:"Effective Communication Skill Development",mentor:"Catherin Sweety"},
+      {subject:"Business Analytics Laboratory",mentor:"Aakaash"},
       {subject:"Database Management Systems Laboratory",mentor:"Nishanta Kakati"},
       {subject:"Operating Systems",mentor:"Nishanta Kakati"},
-      {subject:"Principles of Management",mentor:"Ansila K"},
-      {subject:"Aptitude",mentor:"Surya G"},
-      {subject:"Environmental Studies",mentor:"Sabitha Shanmugam"}
+      {subject:"Principles of Management",mentor:"Ansila"},
+      {subject:"Aptitude",mentor:"Surya"},
+      {subject:"Environmental Studies",mentor:"Afridkhan"}
     ],
     "II B.Com Fintech with AI": [
-      {subject:"Cost Accounting",mentor:"Santhosh Kumar M"},
+      {subject:"Cost Accounting",mentor:"Santhosh Kumar"},
       {subject:"Effective Communication Skills",mentor:"Sabitha Shanmugam"},
-      {subject:"Financial Management",mentor:"Santhosh Kumar M"},
-      {subject:"Governance and Ethics of Financial Services",mentor:"Santhosh Kumar M"},
-      {subject:"Accounting Standards for BFSI Industry",mentor:"Santhosh Kumar M"},
-      {subject:"Banking Technology and Digital Payments",mentor:"Ansila K"},
-      {subject:"Aptitude",mentor:"Jayashree R"},
-      {subject:"Elective Digital Marketing and E-Commerce Consumer Behaviour",mentor:"Sruthi V"},
-      {subject:"Entrepreneurship and Startup Fundamentals",mentor:"Santhosh Kumar M"}
+      {subject:"Financial Management",mentor:"Santhosh Kumar"},
+      {subject:"Governance and Ethics of Financial Services",mentor:"Santhosh Kumar"},
+      {subject:"Accounting Standards for BFSI Industry",mentor:"Santhosh Kumar"},
+      {subject:"Banking Technology and Digital Payments",mentor:"Ansila"},
+      {subject:"Elective Digital Marketing and E-Commerce Consumer Behaviour",mentor:"Sruthi"},
+      {subject:"Entrepreneurship and Startup Fundamentals",mentor:"Santhosh Kumar"},
+      {subject:"Aptitude",mentor:"Jayashree R"}
     ],
     "II BBA E-Commerce & Digital Marketing": [
-      {subject:"Business Statistics and Data Research",mentor:"Sruthi V"},
+      {subject:"Business Statistics and Data Research",mentor:"Sruthi"},
       {subject:"Effective Communication Skills",mentor:"Sabitha Shanmugam"},
-      {subject:"Logistics and E-Commerce Trends",mentor:"Sruthi V"},
-      {subject:"Aptitude",mentor:"Surya G"},
-      {subject:"Capstone Projects – II",mentor:"Sruthi V"},
-      {subject:"Financial Accounting",mentor:"Ansila K"},
-      {subject:"Product Sourcing and Inventory Management",mentor:"Ansila K"},
-      {subject:"Omnichannel Marketing and Customer Journey",mentor:"Sruthi V"},
-      {subject:"Strategic Management",mentor:"Ansila K"}
+      {subject:"Logistics and E-Commerce trends",mentor:"Sruthi"},
+      {subject:"Aptitude",mentor:"Surya"},
+      {subject:"Capstone Projects – II",mentor:"Sruthi"},
+      {subject:"Financial Accounting",mentor:"Ansila"},
+      {subject:"Product Sourcing and Inventory Management",mentor:"Ansila"},
+      {subject:"Omnichannel Marketing and Customer Journey",mentor:"Sruthi"},
+      {subject:"Strategic Management",mentor:"Ansila"}
+    ],
+    "I B.Sc AI & DS": [
+      {subject:"Python Programming",mentor:"Praveen Yadavalli"},
+      {subject:"Design for Developers (UI and UX)",mentor:"Praveen Yadavalli"},
+      {subject:"Effective Communication for Professionals",mentor:"Afridkhan"},
+      {subject:"Mathematics for AI",mentor:"Surya"},
+      {subject:"Problem solving through Aptitude – I Laboratory",mentor:"Surya"},
+      {subject:"Fundamentals and Computer Architecture",mentor:"Vishal Kumar"}
+    ],
+    "I B.Com Fintech with AI": [
+      {subject:"Effective Communication Skills",mentor:"Sabitha Shanmugam"},
+      {subject:"Introduction to FinTech",mentor:"Jayashree B"},
+      {subject:"Principles of Financial Accounting",mentor:"Jayashree B"},
+      {subject:"Problem solving through Aptitude - I",mentor:"Jayashree R"},
+      {subject:"Business Economics",mentor:"Jayashree B"},
+      {subject:"Business Mathematics and Statistics",mentor:"Jayashree R"},
+      {subject:"Principles of Management",mentor:"Jayashree B"}
+    ],
+    "I B.Tech. AI & DS": [
+      {subject:"Logic Building using Java",mentor:"Parthajit Konwar"},
+      {subject:"Workplace English for Engineers",mentor:"Afridkhan"},
+      {subject:"AI-Centric Design Thinking",mentor:"Parthajit Konwar"},
+      {subject:"Statistics for Data Science",mentor:"Jayashree R"},
+      {subject:"Web Interfaces for AI Applications",mentor:"Parthajit Konwar"},
+      {subject:"Low Code and No Code App Development",mentor:"Praveen Yadavalli"},
+      {subject:"Aptitude",mentor:"Jayashree R"}
     ]
   },
   "Sasurie College of Arts & Science": {
-    "II-B.Sc CS": [
-      {subject:"Data Structures",mentor:"Arunraj T"},
-      {subject:"Python Programming - FOP",mentor:"Jagadeesan M"},
-      {subject:"Python Programming Lab",mentor:"Jagadeesan M"},
-      {subject:"Machine Learning",mentor:"Jagadeesan M"},
-      {subject:"Software Engineering and Software Project Management",mentor:"Abirami K"}
+    "II B.Sc CS": [
+      {subject:"Data Strucutures",mentor:"Arunraj"},
+      {subject:"Python Programming - FOP",mentor:"Jagadeesan"},
+      {subject:"Python Programming Lab",mentor:"Jagadeesan"},
+      {subject:"Machine Learning",mentor:"Jagadeesan"},
+      {subject:"Software Engineering and Software Project Management",mentor:"Abirami"}
     ],
-    "II-B.Sc IT": [
-      {subject:"Data Structures",mentor:"Arunraj T"},
-      {subject:"RDBMS Programming",mentor:"Abirami K"},
-      {subject:"Programming Lab- RDBMS",mentor:"Abirami K"},
-      {subject:"Microprocessor and its Applications",mentor:"Abirami K"},
-      {subject:"Web Application Development",mentor:"Jagadeesan M"}
+    "II B.Sc IT": [
+      {subject:"Data Strucutures",mentor:"Arunraj"},
+      {subject:"RDBMS Programming ",mentor:"Abirami"},
+      {subject:"Programming Lab- RDBMS",mentor:"Abirami"},
+      {subject:"Microprocessor and its Applications",mentor:"Abirami"},
+      {subject:"Web Application Development",mentor:"Jagadeesan"}
     ],
-    "II-B.Sc CS AI&DS": [
-      {subject:"Java Programming",mentor:"Abirami K"},
-      {subject:"Java Programming Lab",mentor:"Abirami K"},
-      {subject:"Foundation of Artificial Intelligence",mentor:"Jagadeesan M"},
-      {subject:"Operating System Design",mentor:"Arunraj T"},
-      {subject:"Data Analytics",mentor:"Arunraj T"}
+    "II B.Sc CS AI & DS": [
+      {subject:"Java Programming",mentor:"Abirami"},
+      {subject:"Java Programming Lab",mentor:"Abirami"},
+      {subject:"Foundation of Artificial Intelligence",mentor:"Jagadeesan"},
+      {subject:"Operating System Design",mentor:"Arunraj"},
+      {subject:"Data Analytics",mentor:"Arunraj"}
     ],
-    "II-B.Com PA": [
-      {subject:"Higher Financial Accounting",mentor:"Sarumathi G"},
-      {subject:"Company Law",mentor:"Sarumathi G"},
-      {subject:"Computer Applications Practical",mentor:"Sarumathi G"},
-      {subject:"Stock Market Operations",mentor:"Sarumathi G"}
+    "II B.Com PA": [
+      {subject:"Higher Financial Accounting",mentor:"Sarumathi"},
+      {subject:"Company Law",mentor:"Sarumathi"},
+      {subject:"Computer Applications Practical",mentor:"Sarumathi"},
+      {subject:"Stock Market Operations",mentor:"Sarumathi"}
     ],
-    "II-BBA CA": [
-      {subject:"Financial Accounting",mentor:"Sarumathi G"},
-      {subject:"Production and Materials Management",mentor:"Kowsalya S"},
-      {subject:"Business Law",mentor:"Kowsalya S"},
-      {subject:"PC-Software MS-Office (Practical)",mentor:"Kowsalya S"}
+    "II BBA CA": [
+      {subject:"Financial Accounting",mentor:"Sarumathi"},
+      {subject:"Production and Materials Management",mentor:"Kowsalya"},
+      {subject:"Business Law",mentor:"Kowsalya"},
+      {subject:"PC-Software MS-Office (Practical)",mentor:"Kowsalya"}
     ]
-  }
+  },
+  "St. Agnes College (Autonomous)": {
+    "II B.Com AIML": [
+      {subject:"Python For Financial Intelligence",mentor:"Akarsh"},
+      {subject:"SQL For Financial management",mentor:"Akarsh"},
+      {subject:"Exploratory Data Analysis",mentor:"Akarsh"}
+    ]
+  },
+  "Alliance University": {
+  "II MCA (Data Science)": [
+    {subject:"Data Analytics for Business",mentor:"Aman"},
+    {subject:"Data Mining and Big Data Analytics",mentor:"Nagasri"},
+    {subject:"Deep Learning Models and Applications",mentor:"Sanjivini"},
+    {subject:"Engineering Principles of Software",mentor:"Gomathy"},
+    {subject:"NLP Algorithms and Applications",mentor:"Nagasri"},
+    {subject:"Professional Skill Development",mentor:"Dharshinee"}
+  ],
+  "II MCA (Generative AI)": [
+    {subject:"Generative Models and Applications",mentor:"Sanjivini"},
+    {subject:"Deep Learning Models and Applications",mentor:"Sanjivini"},
+    {subject:"Engineering Principles of Software",mentor:"Gomathy"},
+    {subject:"NLP Algorithms and Applications",mentor:"Nagasri"},
+    {subject:"Professional Skill Development",mentor:"Dharshinee"}
+  ],
+  "II MCA (General)": [
+    {subject:"Web Technologies",mentor:"Veera Raghav"},
+    {subject:"Quality Assurance in Software Development",mentor:"Veera Raghav"},
+    {subject:"Artificial Intelligence: Concepts and Applications",mentor:"Gomathy"},
+    {subject:"Engineering Principles of Software",mentor:"Gomathy"},
+    {subject:"Data Mining and Warehousing",mentor:"Nagasri"},
+    {subject:"Professional Skill Development",mentor:"Dharshinee"}
+  ],
+  "I MCA": [
+    {subject:"Discrete Structures",mentor:"Pramisha"},
+    {subject:"Communication and Life Skills - I",mentor:"Dharshinee"},
+    {subject:"Problem solving through Aptitude - I",mentor:"Ajiith Pandian"},
+    {subject:"Mastering Python: From Basics to Advanced",mentor:"Kushal I Huddar"},
+    {subject:"Advanced Data Science Techniques",mentor:"Durga Bravish"},
+    {subject:"Advanced UI and UX Design for Developers",mentor:"Abhishek A"},
+    {subject:"Front-End Frameworks and Technologies",mentor:"Veera Raghav"}
+  ],
+  "III BCA (Data Science)": [
+    {subject:"Deep Learning",mentor:"Nagasri"},
+    {subject:"Business Analytics",mentor:"Aman"},
+    {subject:"Introduction to Internet of Things (IoT)",mentor:"Durga Bravish"},
+    {subject:"Recruitment Essentials",mentor:"Ajiith Pandian"},
+    {subject:"Career Competency Enhancement",mentor:"Dharshinee"}
+  ],
+  "III BCA (AIML)": [
+    {subject:"Deep Learning",mentor:"Nagasri"},
+    {subject:"Generative AI",mentor:"Sanjivini"},
+    {subject:"Business Analytics",mentor:"Aman"},
+    {subject:"Introduction to Internet of Things (IoT)",mentor:"Durga Bravish"},
+    {subject:"Recruitment Essentials",mentor:"Ajiith Pandian"},
+    {subject:"Career Competency Enhancement",mentor:"Dharshinee"}
+  ],
+  "III BCA (Game Development)": [
+    {subject:"Mobile Game Development",mentor:"Abhishek A"},
+    {subject:"Software Testing & Quality Assurance",mentor:"Kushal I Huddar"},
+    {subject:"Introduction to Virtual Reality (VR) and Augmented Reality (AR)",mentor:"Abhishek A"},
+    {subject:"Project Management",mentor:"Ajiith Pandian"},
+    {subject:"Recruitment Essentials",mentor:"Ajiith Pandian"},
+    {subject:"Career Competency Enhancement",mentor:"Dharshinee"}
+  ],
+  "II BCA (Data Science)": [
+    {subject:"Machine Learning Fundamentals",mentor:"Gomathy"},
+    {subject:"Data Visualization",mentor:"Durga Bravish"},
+    {subject:"Database Management Systems",mentor:"Renita Joy"},
+    {subject:"Probability and Statistical Inference",mentor:"Pramisha"},
+    {subject:"Interpersonal and Essential Skills - III",mentor:"Dharshinee"}
+  ],
+  "II BCA (AIML)": [
+    {subject:"Machine Learning Fundamentals",mentor:"Gomathy"},
+    {subject:"Data Visualization",mentor:"Durga Bravish"},
+    {subject:"Database Management Systems",mentor:"Renita Joy"},
+    {subject:"Probability and Statistical Inference",mentor:"Pramisha"},
+    {subject:"Interpersonal and Essential Skills - III",mentor:"Dharshinee"}
+  ],
+  "II BCA (Game Development)": [
+    {subject:"Database Management Systems",mentor:"Renita Joy"},
+    {subject:"Interpersonal and Essential Skills - III",mentor:"Dharshinee"},
+    {subject:"Mobile Application Development",mentor:"Abhishek A"},
+    {subject:"Computer Graphics",mentor:"Abhishek A"},
+    {subject:"Front-End Web Development",mentor:"Veera Raghav"}
+  ],
+  "I BCA": [
+    {subject:"Mathematics for Computing",mentor:"Pramisha"},
+    {subject:"Python Programming",mentor:"Renita Joy"},
+    {subject:"Python Programming-Lab",mentor:"Renita Joy"},
+    {subject:"Fundamentals of Computer",mentor:"Shremya"},
+    {subject:"Operating Systems",mentor:"Shremya"},
+    {subject:"Interpersonal and Essential Skills - I",mentor:"Dharshinee"},
+    {subject:"Analytical Reasoning and Problem Solving - I",mentor:"Ajiith Pandian"}
+  ]
+}      
 };
 
 // ─── POPULATE COLLEGE DROPDOWN FROM DATA ──────────────────────────────────────
