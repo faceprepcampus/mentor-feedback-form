@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FACE Prep Campus — Faculty Feedback</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root {
   --bg: #f8fafc;
@@ -366,30 +365,6 @@ input::placeholder, textarea::placeholder { color: #94a3b8; }
 
 @keyframes shake { 0%,100%{transform:translateX(0);} 10%,30%,50%,70%,90%{transform:translateX(-4px);} 20%,40%,60%,80%{transform:translateX(4px);} }
 .shake { animation: shake 0.5s; }
-
-/* ── Auto-filled & Non-Changeable (Locked) Fields ── */
-.locked-field {
-  background: var(--surface2) !important;
-  color: var(--text) !important;
-  cursor: not-allowed !important;
-  border-color: var(--border) !important;
-  user-select: none !important;
-}
-.locked-field:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border-color: var(--border) !important;
-}
-.locked-select-wrapper {
-  pointer-events: none !important;
-  opacity: 0.95 !important;
-}
-.locked-select-wrapper select {
-  background: var(--surface2) !important;
-  color: var(--text) !important;
-  cursor: not-allowed !important;
-  border-color: var(--border) !important;
-}
 </style>
 </head>
 <body>
@@ -443,37 +418,37 @@ input::placeholder, textarea::placeholder { color: #94a3b8; }
       <div class="field-row">
         <div class="field">
           <label for="studentName">Student Name <span class="req">*</span></label>
-          <input type="text" id="studentName" name="studentName" placeholder="Auto-filled from Register Number" readonly class="locked-field" required>
-          <div class="err-msg">Please enter a valid register number</div>
+          <input type="text" id="studentName" name="studentName" placeholder="Your full name" required>
+          <div class="err-msg">Please enter your name</div>
         </div>
         <div class="field">
           <label for="regNumber">Register Number <span class="req">*</span></label>
-          <input type="text" id="regNumber" name="regNumber" placeholder="e.g. 22CS001" required autocomplete="off" style="text-transform: uppercase;">
+          <input type="text" id="regNumber" name="regNumber" placeholder="e.g. 22CS001" required>
           <div class="err-msg">Please enter your register number</div>
         </div>
       </div>
       <div class="field">
         <label for="studentEmail">Email ID <span class="req">*</span></label>
-        <input type="email" id="studentEmail" name="studentEmail" placeholder="Auto-filled from Register Number" readonly class="locked-field" required>
-        <div class="err-msg">Please enter a valid register number to populate email</div>
+        <input type="email" id="studentEmail" name="studentEmail" placeholder="yourname@college.edu" required>
+        <div class="err-msg">Please enter a valid email address</div>
       </div>
       <div class="field">
         <label for="collegeName">College <span class="req">*</span></label>
-        <div class="select-wrapper locked-select-wrapper">
-          <select id="collegeName" name="collegeName" required class="locked-field">
-            <option value="" disabled selected>Auto-selected from Register Number</option>
+        <div class="select-wrapper">
+          <select id="collegeName" name="collegeName" required>
+            <option value="" disabled selected>Select your college</option>
           </select>
         </div>
-        <div class="err-msg">Please enter a valid register number</div>
+        <div class="err-msg">Please select your college</div>
       </div>
       <div class="field">
         <label for="department">Department <span class="req">*</span></label>
-        <div class="select-wrapper locked-select-wrapper">
-          <select id="department" name="department" required class="locked-field">
-            <option value="" disabled selected>Auto-selected from Register Number</option>
+        <div class="select-wrapper">
+          <select id="department" name="department" required disabled>
+            <option value="" disabled selected>First select your college</option>
           </select>
         </div>
-        <div class="err-msg">Please enter a valid register number</div>
+        <div class="err-msg">Please select your department</div>
       </div>
     </div>
 
@@ -565,46 +540,6 @@ input::placeholder, textarea::placeholder { color: #94a3b8; }
           <div class="err-msg">Please share your suggestions</div>
         </div>
       </div>
-
-<div class="form-section-label">Net Promoter Score</div>
-      <div class="section">
-        <div class="section-title"><div class="icon icon-purple">⭐</div>Net Promoter Score (NPS)</div>
-        <div class="nps-block" id="npsBlock">
-          <div class="nps-block-title">Q1 — Based on the overall FACE Prep program experience, how likely are you to recommend FACE Prep to your friends or juniors?</div>
-          <div class="nps-btns" id="npsBtns">
-            <input type="radio" id="nps1"  name="nps_score" value="1"  required><label for="nps1">1</label>
-            <input type="radio" id="nps2"  name="nps_score" value="2"><label for="nps2">2</label>
-            <input type="radio" id="nps3"  name="nps_score" value="3"><label for="nps3">3</label>	
-            <input type="radio" id="nps4"  name="nps_score" value="4"><label for="nps4">4</label>
-            <input type="radio" id="nps5"  name="nps_score" value="5"><label for="nps5">5</label>
-            <input type="radio" id="nps6"  name="nps_score" value="6"><label for="nps6">6</label>
-            <input type="radio" id="nps7"  name="nps_score" value="7"><label for="nps7">7</label>
-            <input type="radio" id="nps8"  name="nps_score" value="8"><label for="nps8">8</label>
-            <input type="radio" id="nps9"  name="nps_score" value="9"><label for="nps9">9</label>
-            <input type="radio" id="nps10" name="nps_score" value="10"><label for="nps10">10</label>
-          </div>
-          <div class="nps-labels"><span>Not likely</span><span>Extremely likely</span></div>
-          <div class="err-msg" style="margin-top:8px;">Please select a score</div>
-        </div>
-        <div class="yn-list" style="margin-bottom:20px;">
-          <div class="yn-row" id="nps_fu1_row"><span class="yn-qnum">Q2</span><span class="yn-text">Are you satisfied with the overall campus experience (Classroom, Campus Infrastructure, Network / Wi-Fi)?</span><div class="yn-btns"><input type="radio" id="nps_fu1_y" name="nps_fu1" value="Yes" required><label for="nps_fu1_y" class="yes-lbl">Yes</label><input type="radio" id="nps_fu1_n" name="nps_fu1" value="No"><label for="nps_fu1_n" class="no-lbl">No</label></div></div>
-          <div class="yn-row" id="nps_fu2_row"><span class="yn-qnum">Q3</span><span class="yn-text">Are you satisfied with the classroom engagement and experience (Quality of Faculty, Relevance of content delivered)?</span><div class="yn-btns"><input type="radio" id="nps_fu2_y" name="nps_fu2" value="Yes" required><label for="nps_fu2_y" class="yes-lbl">Yes</label><input type="radio" id="nps_fu2_n" name="nps_fu2" value="No"><label for="nps_fu2_n" class="no-lbl">No</label></div></div>
-          <div class="yn-row" id="nps_fu3_row"><span class="yn-qnum">Q4</span><span class="yn-text">Are you happy with the Skill Development progress?</span><div class="yn-btns"><input type="radio" id="nps_fu3_y" name="nps_fu3" value="Yes" required><label for="nps_fu3_y" class="yes-lbl">Yes</label><input type="radio" id="nps_fu3_n" name="nps_fu3" value="No"><label for="nps_fu3_n" class="no-lbl">No</label></div></div>
-          <div class="yn-row" id="nps_fu4_row"><span class="yn-qnum">Q5</span><span class="yn-text">Are you happy with Placement opportunities?</span><div class="yn-btns"><input type="radio" id="nps_fu4_y" name="nps_fu4" value="Yes" required><label for="nps_fu4_y" class="yes-lbl">Yes</label><input type="radio" id="nps_fu4_n" name="nps_fu4" value="No"><label for="nps_fu4_n" class="no-lbl">No</label></div></div>
-        </div>
-        <div class="field">
-          <label for="npsLike">Q6. In summary, what do you like about the FACE Prep program? <span class="req">*</span></label>
-          <textarea id="npsLike" name="npsLike" placeholder="Share what you love about the program…" required></textarea>
-          <div class="err-msg">Please share what you like about the program</div>
-        </div>
-        <div class="field" style="margin-bottom:0;">
-          <label for="npsImprove">Q7. What is one thing you would like FACE Prep to improve in next year? <span class="req">*</span></label>
-          <textarea id="npsImprove" name="npsImprove" placeholder="Your improvement suggestion…" required></textarea>
-          <div class="err-msg">Please share your improvement suggestion</div>
-        </div>
-      </div>
-
-    </div>
       
     <div class="submit-area">
       <button type="submit" class="btn-submit" id="submitBtn">
@@ -635,7 +570,7 @@ const CHALLENGE_IDS = ['challenge_infra','challenge_teaching','challenge_comm','
 
 // ─── COLLEGE DATA ─────────────────────────────────────────────────────────────
 const COLLEGE_DATA = {
-  "Noorul Islam Centre for Higher Education (NICHE)": {
+ "Noorul Islam Centre for Higher Education (NICHE)": {
     "II B.Sc AI & ML": [
     {subject:"Data Structures using Java",mentor:"Aasik"},
     {subject:"Effective Communication",mentor:"Ramnath"},
@@ -1693,280 +1628,6 @@ document.getElementById('department').addEventListener('change', function () {
   updateProgress();
 });
 
-// ─── SUPABASE STUDENT AUTO-FILL & LOCKING ───────────────────────────────────
-const SUPABASE_URL = "https://scuvqabxqqtvibjutoyj.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_wptvdh6rVvEy2uSppa4Ckw_ozPuC6L4";
-const sb = (window.supabase && typeof window.supabase.createClient === 'function')
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
-
-let lookupTimeout = null;
-let lastLookedUpReg = null;
-
-function normalizeText(s) {
-  return String(s || '').toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/computer science/g, 'cs')
-    .replace(/artificial intelligence/g, 'ai')
-    .replace(/machine learning/g, 'ml')
-    .replace(/data science/g, 'ds')
-    .replace(/cloud computing/g, 'cc')
-    .replace(/digital marketing/g, 'dm')
-    .replace(/business analytics/g, 'ba')
-    .replace(/computer technology/g, 'ct')
-    .replace(/[^a-z0-9]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function findBestMatchingCollege(target) {
-  if (!target) return null;
-  const colleges = Object.keys(COLLEGE_DATA);
-  const nTarget = normalizeText(target);
-  
-  // 1. Exact match
-  for (const c of colleges) {
-    if (normalizeText(c) === nTarget) return c;
-  }
-  // 2. Substring match
-  for (const c of colleges) {
-    const nc = normalizeText(c);
-    if (nc.includes(nTarget) || nTarget.includes(nc)) return c;
-  }
-  // 3. Distinctive keyword match
-  const stopWords = new Set(['college', 'arts', 'science', 'women', 'womens', 'university', 'deemed', 'the', 'for', 'of', 'and', 'institution', 'school', 'centre', 'group', 'to', 'be']);
-  const targetWords = nTarget.split(' ').filter(w => !stopWords.has(w) && w.length > 2);
-  
-  let best = null;
-  let maxMatch = 0;
-  for (const c of colleges) {
-    const ncWords = new Set(normalizeText(c).split(' ').filter(w => !stopWords.has(w) && w.length > 2));
-    let matchCount = 0;
-    targetWords.forEach(w => {
-      if (ncWords.has(w)) matchCount++;
-    });
-    if (matchCount > maxMatch) {
-      maxMatch = matchCount;
-      best = c;
-    }
-  }
-  return best;
-}
-
-function findBestMatchingDepartment(collegeKey, targetDept) {
-  if (!collegeKey || !COLLEGE_DATA[collegeKey] || !targetDept) return null;
-  const depts = Object.keys(COLLEGE_DATA[collegeKey]);
-  const nTarget = normalizeText(targetDept);
-  
-  let bestDept = depts[0];
-  let maxScore = -1;
-
-  const isShift2 = nTarget.includes('shift 2') || nTarget.includes('shift2');
-  const isShift1 = nTarget.includes('shift 1') || nTarget.includes('shift1');
-  const isYear3 = /\b(iii|3rd|3|third)\b/.test(nTarget);
-  const isYear2 = /\b(ii|2nd|2|second)\b/.test(nTarget) && !isYear3;
-  const isYear1 = (/\b(i|1st|1|first)\b/.test(nTarget) || !nTarget.includes('ii')) && !isYear2 && !isYear3;
-
-  const targetWords = nTarget.split(' ').filter(w => w.length > 1);
-
-  for (const d of depts) {
-    const nd = normalizeText(d);
-    let score = 0;
-
-    const dYear3 = /\b(iii|3rd|3|third)\b/.test(nd);
-    const dYear2 = /\b(ii|2nd|2|second)\b/.test(nd) && !dYear3;
-    const dYear1 = (/\b(i|1st|1|first)\b/.test(nd) || !nd.includes('ii')) && !dYear2 && !dYear3;
-
-    if (isYear3 && dYear3) score += 6;
-    else if (isYear2 && dYear2) score += 6;
-    else if (isYear1 && dYear1) score += 6;
-    else if ((isYear3 && (dYear1 || dYear2)) || (isYear2 && (dYear1 || dYear3)) || (isYear1 && (dYear2 || dYear3))) score -= 4;
-
-    const dShift2 = nd.includes('shift 2') || nd.includes('shift2');
-    const dShift1 = nd.includes('shift 1') || nd.includes('shift1');
-    if (isShift2 && dShift2) score += 6;
-    else if (isShift1 && dShift1) score += 6;
-    else if (isShift2 && dShift1) score -= 6;
-    else if (isShift1 && dShift2) score -= 6;
-
-    targetWords.forEach(w => {
-      if (nd.includes(w)) score += 2;
-    });
-
-    if (score > maxScore) {
-      maxScore = score;
-      bestDept = d;
-    }
-  }
-
-  return bestDept;
-}
-
-function setFieldLocked(el, locked) {
-  if (!el) return;
-  if (locked || el.id === 'studentName' || el.id === 'studentEmail') {
-    el.classList.add('locked-field');
-    el.setAttribute('readonly', 'true');
-  } else {
-    el.classList.remove('locked-field');
-    el.removeAttribute('readonly');
-  }
-}
-
-function setSelectLocked(selectEl, locked) {
-  if (!selectEl) return;
-  const wrap = selectEl.closest('.select-wrapper');
-  if (locked || selectEl.id === 'collegeName' || selectEl.id === 'department') {
-    selectEl.classList.add('locked-field');
-    if (wrap) wrap.classList.add('locked-select-wrapper');
-  } else {
-    selectEl.classList.remove('locked-field');
-    if (wrap) wrap.classList.remove('locked-select-wrapper');
-  }
-}
-
-function unlockAllAutoFields() {
-  const nameEl = document.getElementById('studentName');
-  const emailEl = document.getElementById('studentEmail');
-  const collegeEl = document.getElementById('collegeName');
-  const deptEl = document.getElementById('department');
-
-  if (nameEl) {
-    nameEl.value = '';
-    setFieldLocked(nameEl, true);
-  }
-  if (emailEl) {
-    emailEl.value = '';
-    setFieldLocked(emailEl, true);
-  }
-  if (collegeEl) {
-    collegeEl.value = '';
-    setSelectLocked(collegeEl, true);
-  }
-  if (deptEl) {
-    deptEl.innerHTML = '<option value="" disabled selected>Auto-selected from Register Number</option>';
-    deptEl.value = '';
-    setSelectLocked(deptEl, true);
-  }
-}
-
-async function lookupStudentByRegNo(regNo) {
-  const cleanReg = (regNo || '').trim().toUpperCase();
-  const nameEl = document.getElementById('studentName');
-  const emailEl = document.getElementById('studentEmail');
-  const collegeEl = document.getElementById('collegeName');
-  const deptEl = document.getElementById('department');
-
-  // Auto-generate email based on register number
-  if (emailEl) {
-    if (cleanReg) {
-      emailEl.value = cleanReg.includes('@') ? cleanReg.toLowerCase() : `${cleanReg.toLowerCase()}@university.edu`;
-      emailEl.closest('.field')?.classList.remove('error');
-    } else {
-      emailEl.value = '';
-    }
-    setFieldLocked(emailEl, true);
-  }
-
-  if (!cleanReg || cleanReg.length < 3) {
-    unlockAllAutoFields();
-    lastLookedUpReg = null;
-    return;
-  }
-
-  if (cleanReg === lastLookedUpReg) return;
-  lastLookedUpReg = cleanReg;
-
-  try {
-    let student = null;
-    if (sb) {
-      const { data: recs, error } = await sb
-        .from('helpdesk_students')
-        .select('*')
-        .ilike('roll_number', cleanReg)
-        .limit(1);
-      if (!error && recs && recs.length > 0) {
-        student = recs[0];
-      }
-    }
-
-    if (student) {
-      // 1. Auto-fill and Lock Name
-      if (nameEl) {
-        nameEl.value = student.name || '';
-        nameEl.closest('.field')?.classList.remove('error');
-        setFieldLocked(nameEl, true);
-      }
-
-      // 2. Auto-fill and Lock Email
-      if (emailEl) {
-        if (student.email) {
-          emailEl.value = student.email;
-        } else {
-          emailEl.value = cleanReg.includes('@') ? cleanReg.toLowerCase() : `${cleanReg.toLowerCase()}@university.edu`;
-        }
-        setFieldLocked(emailEl, true);
-        emailEl.closest('.field')?.classList.remove('error');
-      }
-
-      // 3. Match & Auto-Select College
-      const matchedCollege = findBestMatchingCollege(student.college);
-      if (matchedCollege && collegeEl) {
-        collegeEl.value = matchedCollege;
-        collegeEl.closest('.field')?.classList.remove('error');
-        
-        // Trigger college change to populate departments
-        collegeEl.dispatchEvent(new Event('change'));
-
-        // 4. Match & Auto-Select Department
-        const matchedDept = findBestMatchingDepartment(matchedCollege, student.department);
-        if (matchedDept && deptEl) {
-          deptEl.value = matchedDept;
-          deptEl.disabled = false;
-          deptEl.closest('.field')?.classList.remove('error');
-          deptEl.dispatchEvent(new Event('change'));
-          setSelectLocked(deptEl, true);
-        }
-        setSelectLocked(collegeEl, true);
-      }
-      updateProgress();
-    } else {
-      unlockAllAutoFields();
-    }
-  } catch (err) {
-    console.error("Student lookup error:", err);
-    unlockAllAutoFields();
-  }
-}
-
-// Register Number event listeners
-const regInp = document.getElementById('regNumber');
-if (regInp) {
-  regInp.addEventListener('input', function() {
-    const val = this.value.trim();
-    const emailEl = document.getElementById('studentEmail');
-    if (emailEl) {
-      emailEl.value = val ? (val.includes('@') ? val.toLowerCase() : `${val.toLowerCase()}@university.edu`) : '';
-      if (emailEl.value) {
-        emailEl.closest('.field')?.classList.remove('error');
-      }
-    }
-    clearTimeout(lookupTimeout);
-    lookupTimeout = setTimeout(() => {
-      lookupStudentByRegNo(val);
-    }, 350);
-  });
-  regInp.addEventListener('blur', function() {
-    lookupStudentByRegNo(this.value);
-  });
-  regInp.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      lookupStudentByRegNo(this.value);
-    }
-  });
-}
-
 function buildScaleHtml(n) {
   let btns = '';
   for (let v = 1; v <= 5; v++) {
@@ -2211,20 +1872,17 @@ function showToast(msg, type='success') {
 function resetForm() {
   document.getElementById('feedbackForm').reset();
   document.getElementById('successScreen').style.display = 'none';
-  document.getElementById('alreadyScreen').style.display = 'none';
   document.getElementById('feedbackForm').style.display = 'block';
   CHALLENGE_IDS.forEach(id => {
     const el = document.getElementById(id);
     if (el) { el.checked = false; el.closest('.check-item').classList.remove('checked'); }
   });
   document.getElementById('ape_q2_detail_wrap').classList.remove('visible');
+  document.getElementById('department').disabled = true;
+  document.getElementById('department').innerHTML = '<option value="" disabled selected>First select your college</option>';
   document.getElementById('facultySections').innerHTML = '';
   document.getElementById('dynamicContent').style.display = 'none';
   document.querySelectorAll('.scale-btns').forEach(sb => sb.classList.remove('has-selection'));
-  unlockAllAutoFields();
-  const statusEl = document.getElementById('regStatus');
-  if (statusEl) { statusEl.style.display = 'none'; statusEl.innerHTML = ''; }
-  lastLookedUpReg = null;
   updateProgress();
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -2304,57 +1962,9 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
       });
     }
 
-    // ── Save to E-Campus Database (PostgreSQL / Supabase) ─────────────────
-    let dbSaved = false;
-    try {
-      const dbRes = await fetch('/api/student-feedback', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const dbResult = await dbRes.json().catch(() => null);
-      if (dbResult) {
-        if (dbResult.duplicate) { showAlready(); return; }
-        if (dbResult.success) dbSaved = true;
-      }
-    } catch (dbErr) {
-      console.warn('Direct API submission note:', dbErr);
-    }
-
-    // Direct Supabase table insert if client is available
-    if (sb) {
-      try {
-        await sb.from('student_mentor_feedback').insert([{
-          id: 'MFB-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2,6).toUpperCase(),
-          register_number: regNo,
-          student_name: fd.get('studentName') || '',
-          email: fd.get('studentEmail') || '',
-          college_name: college || '',
-          department: dept || '',
-          ape_q1_assessments: fd.get('ape_q1') || '',
-          ape_q2_study_materials: fd.get('ape_q2') || '',
-          ape_q2_missing_papers: fd.get('ape_q2_detail') || '',
-          ape_q3_hands_on_rating: fd.get('ape_q3_rating') ? Number(fd.get('ape_q3_rating')) : null,
-          ape_q4_confidence_rating: fd.get('ape_q4_rating') ? Number(fd.get('ape_q4_rating')) : null,
-          challenges_selected: selectedChallenges,
-          challenges_detail: fd.get('challengeDetail') || '',
-          challenges_suggestions: fd.get('challengeSuggestions') || '',
-          nps_score: fd.get('nps_score') ? Number(fd.get('nps_score')) : null,
-          nps_fu1_campus_satisfied: fd.get('nps_fu1') || '',
-          nps_fu2_classroom_satisfied: fd.get('nps_fu2') || '',
-          nps_fu3_skill_dev: fd.get('nps_fu3') || '',
-          nps_fu4_placement: fd.get('nps_fu4') || '',
-          nps_likes: fd.get('npsLike') || '',
-          nps_improve: fd.get('npsImprove') || '',
-          full_payload: JSON.stringify(data),
-          submitted_at: new Date().toISOString()
-        }]);
-      } catch (sbErr) {
-        // Handled by API route
-      }
-    }
-
     // ── Send to Google Sheet and read its status ──────────────────────────
+    // The Apps Script checks the register number, appends the row if new,
+    // and returns { status: "success" | "duplicate" | "error" }.
     const formPayload = new URLSearchParams();
     formPayload.append('payload', JSON.stringify(data));
 
@@ -2367,7 +1977,7 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
 
     if (result.status === 'duplicate') { showAlready(); return; }
 
-    if (result.status !== 'success' && !dbSaved) {
+    if (result.status !== 'success') {
       overlay.classList.remove('show');
       resetBtn();
       showToast('Could not save your feedback. Please try again.', 'error');
