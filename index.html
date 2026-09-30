@@ -2026,7 +2026,8 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
 
     // ── Success ───────────────────────────────────────────────────────────
     overlay.classList.remove('show');
-    resetBtn();
+    btn.disabled = false;
+    btn.innerHTML = '<span>Submit Feedback</span><span>→</span>';
     document.getElementById('feedbackForm').style.display = 'none';
     const studentName = (fd.get('studentName') || '').trim();
     const title = studentName ? `Thank you, ${studentName}! 🎉` : 'Feedback Submitted! 🎉';
@@ -2037,7 +2038,8 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
   } catch (err) {
     console.error('Submission error:', err);
     overlay.classList.remove('show');
-    resetBtn();
+    btn.disabled = false;
+    btn.innerHTML = '<span>Submit Feedback</span><span>→</span>';
     showToast('Network error. Please check your connection and try again.', 'error');
   }
 });
