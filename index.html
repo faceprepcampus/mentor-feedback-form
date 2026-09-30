@@ -1607,17 +1607,21 @@ const COLLEGE_DATA = {
   ]
 },
 
-  "S-VYASA University": {
+    "S-VYASA University": {
   "III BCA": [
   {subject:"Software Testing and Quality Assurance",mentor:"Nagashree"},
   {subject:"Project Management",mentor:"Satwika"},
   {subject:"Professional Skill Development",mentor:"Satwika"},
-  {subject:"Natural Language Processing",mentor:"Satwika"},
+  {subject:"Elective", isElective:true, electiveOptions:[
+    {label:"Natural Language Processing", mentor:"Satwika"},
+    {label:"Network and Communication Security", mentor:"Rakshitha"}
+  ]},
   {subject:"Network and Communication Security",mentor:"Rakshitha"},
   {subject:"Lab - Software Testing and Quality Assurance",mentor:"Nagashree"},
   {subject:"Lab – Cyber Security",mentor:"Rakshitha"}
 ]
   }
+ 
 };
 
 // ─── POPULATE COLLEGE DROPDOWN FROM DATA ──────────────────────────────────────
