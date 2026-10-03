@@ -595,7 +595,7 @@ input::placeholder, textarea::placeholder { color: #94a3b8; }
 
 <script>
 // ─── GOOGLE SHEET CONFIG ─────────────────────────────────────────────────────
-const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzxJ899XMW_Tny-bzOcC7B__cn7Yn1mopb-SRB3Sv0owLdJR3xkSV1oNkM9BHSbFpj_8Q/exec";
+const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxS9YHrffCa3Ym8qvA9wbtEhNIocde41rU3Qu2paKmUuUQkDALxESZOgELmiALymlbSBQ/exec";
 
 const QUESTIONS = [
   "Were the sessions delivered by the Faculty clear and well-structured?",
@@ -1931,6 +1931,27 @@ function resetForm() {
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+// ─── JSONP duplicate pre-check (reads the reply without CORS) ──────────────────
+function jsonpCheck(regNo, college) {
+  return new Promise((resolve) => {
+    const cbName = 'fpc_cb_' + Date.now();
+    const script = document.createElement('script');
+    const timer = setTimeout(() => { cleanup(); resolve({ status: 'timeout' }); }, 8000);
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[cbName];
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+    window[cbName] = (res) => { cleanup(); resolve(res); };
+    script.onerror = () => { cleanup(); resolve({ status: 'error' }); };
+    script.src = SHEET_SCRIPT_URL
+      + '?callback=' + encodeURIComponent(cbName)
+      + '&reg='      + encodeURIComponent(regNo)
+      + '&college='  + encodeURIComponent(college);
+    document.body.appendChild(script);
+  });
+}
+  
 // ─── SUBMIT — Google Sheet is the only backend (dedupe + storage) ─────────────
 document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -2006,27 +2027,19 @@ document.getElementById('feedbackForm').addEventListener('submit', async functio
       });
     }
 
-    // ── Send to Google Sheet and read its status ──────────────────────────
-    // The Apps Script checks the register number, appends the row if new,
-    // and returns { status: "success" | "duplicate" | "error" }.
+        // ── Step 1: duplicate pre-check (reads the reply via JSONP) ────────────
+    const check = await jsonpCheck(regNo, college);
+    if (check && check.duplicate === true) { showAlready(); return; }
+
+    // ── Step 2: save the response (server still guards duplicates) ─────────
     const formPayload = new URLSearchParams();
     formPayload.append('payload', JSON.stringify(data));
-
-    const res = await fetch(SHEET_SCRIPT_URL, {
+    await fetch(SHEET_SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formPayload.toString()
     });
-    const result = await res.json().catch(() => ({ status: 'error' }));
-
-    if (result.status === 'duplicate') { showAlready(); return; }
-
-    if (result.status !== 'success') {
-      overlay.classList.remove('show');
-      resetBtn();
-      showToast('Could not save your feedback. Please try again.', 'error');
-      return;
-    }
 
     // ── Success ───────────────────────────────────────────────────────────
     overlay.classList.remove('show');
